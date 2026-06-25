@@ -1,0 +1,445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ModuleAPI_C_doc  错误处理</title>
+<link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+<link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+<link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+<link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ModuleAPI_C_doc
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../doc_API_C_html/',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('api_error.html','../doc_API_C_html/'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="header">
+  <div class="headertitle"><div class="title">错误处理</div></div>
+</div><!--header-->  
+
+<div class="beftitle">
+  &nbsp;
+  </div>
+  <div class="beftitle">
+  所有具有返回值的API函数将在成功时返回<a href="../doc_API_C_html/_module_reader_8h.html#ae7c9abd6997ff9b38c41e4ef71f142a6a31d864b368bd3829bde2fe63d9836791">MT_OK_ERR</a>。如果返回值为MT_IO_ERR，则表示网络连接或串口连接有问题，
+  应首先调用<a href=../doc_API_C_html/_module_reader_8h.html#a96688388f9fb011d0aab2f89de9a0797>CloseReader</a>
+  并检查这些连接，然后再尝试调用<a href=../doc_API_C_html/_module_reader_8h.html#a82c6eeba8206562c555eca7c538cea2d>InitReader_Notype</a>。 
+  至于MT_CMD_FAILED_ERR，它只是意味着函数失败，它不是致命错误，你可以接下来做任何操作。但是若在盘点中出现，一般为通信数据异常。出现频率较多则意味通信状况较差。至于MT_CMD_NO_TAG_ERR，严格来说它不能被称为错误，表示标签操作时没有发现标签。
+  </div>
+  <div class="beftitle">
+  &nbsp;&nbsp;
+  </div>
+  <div class="beftitle">
+  以MT_HARDWARE_ALERT_ERR_BY开头的错误属于严重错误，不容忽视，有可能导致硬件损坏。有一些不正确的操作会导致这些错误，这些操作包括：
+  </div>
+  <ul class="inner_list">
+  <li class="inter_list_item">在没有接天线的读写器端口进行标签操作</li>
+  <li class="inter_list_item">使用不合格的天线</li>
+  <li class="inter_list_item">环境温度过高</li>
+  <li class="inter_list_item">天线前方离金属很近，会造成回波损耗过大</li>
+  </ul>
+  <div class="beftitle">
+  最好先关闭读写器并检查发生这些错误时的工作条件和工作环境。
+  </div>
+  <div class="beftitle">
+  &nbsp;
+  </div>
+  <div class="beftitle">
+  还有另一种方法可以进行错误故障排查，您可以在发生错误后立即调用<a href=../doc_API_C_html/_module_reader_8h.html#a75ab9406a719922f1dc8fe48a8dda281>GetLastDetailError</a>函数，
+  以获取更详细的错误代码和由字符串表示的错误消息。
+  </div>
+  <p>对于GetLastDetailError接口调用，应遵循以下几点规则。</p>
+  <li>InitReader_Notype返回失败后，由于句柄hreader无效，故不应调用GetLastDetailError接口</li>
+  <li>RFID操作例如，读写锁，参数配置等接口返回失败后，即非MT_OK_ERR后可以调用GetLastDetailError接口</li>
+  <li>在回调函数<a href=../doc_API_C_html/_module_reader_8h.html#ae04aff4475628575dfbcf2b31982cd98>ReadingErrorHandler</a>处理函数中可以调用GetLastDetailError接口</li>
+  <div class="beftitle">
+  &nbsp;
+  </div>
+  <div class="beftitle">
+  当前版本SDK的所有函数（<a href=../doc_API_C_html/_module_reader_8h.html#a82c6eeba8206562c555eca7c538cea2d>InitReader_Notype</a>函数除外）对于同一个读写器实例句柄都不是线程安全的。
+  用户应确保API函数调用没有竞争条件或保证多线程间互斥调用API函数。对于不同的读写器实例句柄，没有上述限制。
+  </div>
+  <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <p>以下为调用GetLastDetailError函数返回读写器的错误代码表。列表中的代码由读写器返回，详细可参考表描述。</p>
+  <style id="mapsty">
+      table1 {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+       
+      .th1, .td1 {
+        border: 1px solid black;
+        padding: 5px;
+        vertical-align: middle; /* 垂直居中 */
+        text-align: center; /* 水平居中 */
+      }
+      </style>
+  <table class="table1">
+      <thead>
+      <tr >
+      <th class="th1">Status Code(HEX)</th>
+      <th class="th1">Status Code(DEC)</th>
+      <th class="th1">描述与处理</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr></tr>
+          <td class="td1">0x0000</td>
+          <td class="td1">0</td>
+          <td class="td1">成功</td>
+      </tr>
+      <tr>
+          <td class="td1">0x0100</td>
+          <td class="td1">256</td>
+          <td class="td1">发送Data Length 错误，可能读写器固件版本与API版本不匹配，检查相关版本</td>
+      </tr>
+      <tr>
+        <td class="td1">0x0101</td>
+        <td class="td1">257</td>
+        <td class="td1">命令不可用，应先确定读写器支持此命令；其次应检查读写器状态转变，
+          若发生从应用状态自动转为启动状态，常因读写器供电不稳定导致软复位。</td>
+      </tr>
+      <tr>
+          <td class="td1">0x0105</td>
+          <td class="td1">261</td>
+          <td class="td1">参数值不可用，检查相关参数值</td>
+      </tr>
+      <tr>
+          <td class="td1">0x010A</td>
+          <td class="td1">266</td>
+          <td class="td1">波特率不可用</td>
+      </tr>
+      <tr>
+        <td class="td1">0x010B</td>
+        <td class="td1">267</td>
+        <td class="td1">当前工作频段不可用</td>
+    </tr>
+    <tr>
+      <td class="td1">0x0200</td>
+      <td class="td1">512</td>
+      <td class="td1">App Firmware层程序CRC不正确，可以尝试重新升级读写器固件</td>
+  </tr>
+  <tr>
+    <td class="td1">0x0302</td>
+    <td class="td1">770</td>
+    <td class="td1">AFlash未定义错误，闪存写入失败</td>
+</tr>
+<tr>
+  <td class="td1">0x0400</td>
+  <td class="td1">1024</td>
+  <td class="td1">未发现标签，常见于功率不足或者过滤不匹配</td>
+</tr>
+<tr>
+  <td class="td1">0x0402</td>
+  <td class="td1">1026</td>
+  <td class="td1">协议不可用，应检查读写器固件，API是否支持当前协议</td>
+</tr>
+<tr>
+  <td class="td1">0x0404</td>
+  <td class="td1">1028</td>
+  <td class="td1">启用了写入后读出功能时，写入成功但读失败。可重新执行</td>
+</tr>
+<tr>
+  <td class="td1">0x040A</td>
+  <td class="td1">1034</td>
+  <td class="td1">常规标签错误（读/写锁定，kill命令），可重新执行</td>
+</tr>
+<tr>
+  <td class="td1">0x040B</td>
+  <td class="td1">1035</td>
+  <td class="td1">读取存储区域超出限制的长度（例如，一次只能读取96块）</td>
+</tr>
+<tr>
+  <td class="td1">0x040C</td>
+  <td class="td1">1036</td>
+  <td class="td1">不可用的销毁密码，常见未写销毁密码。重新写销毁密码</td>
+</tr>
+<tr>
+  <td class="td1">0x0420</td>
+  <td class="td1">1056</td>
+  <td class="td1">GEN2协议错误</td>
+</tr>
+<tr>
+  <td class="td1">0x0423</td>
+  <td class="td1">1059</td>
+  <td class="td1">存储区越界，常见传入错误的长度，超出了标签存储范围</td>
+</tr>
+<tr>
+  <td class="td1">0x0424</td>
+  <td class="td1">1060</td>
+  <td class="td1">操作的存储区已被锁定，可尝试设置密码</td>
+</tr>
+<tr>
+  <td class="td1">0x042B</td>
+  <td class="td1">1067</td>
+  <td class="td1">能量不足，可调大功率重试</td>
+</tr>
+<tr>
+  <td class="td1">0x042F</td>
+  <td class="td1">1071</td>
+  <td class="td1">非特定错误</td>
+</tr>
+<tr>
+<td class="td1">0x0430</td>
+<td class="td1">1072</td>
+<td class="td1">未知错误</td>
+</tr>
+<tr>
+<td class="td1">0x0500</td>
+<td class="td1">1280</td>
+<td class="td1">频率值不可用</td>
+</tr>
+<tr>
+<td class="td1">0x0504</td>
+<td class="td1">1284</td>
+<td class="td1">温度过高</td>
+</tr>
+<tr>
+<td class="td1">0x0505</td>
+<td class="td1">1285</td>
+<td class="td1">回波损耗过大，常见于金属反射的环境，也较少发生在频率，天线等原因</td>
+</tr>
+<tr>
+<td class="td1">0x7F00</td>
+<td class="td1">32512</td>
+<td class="td1">系统不知道的错误，严重错误。射频硬件电路启动失败</td>
+</tr>
+<tr>
+<td class="td1">0x500F</td>
+<td class="td1">20495</td>
+<td class="td1">宜链温度标签检测温度超出量程</td>
+</tr>
+<tr>
+<td class="td1">0x50FF</td>
+<td class="td1">20735</td>
+<td class="td1">宜链温度标签检测温度不稳定</td>
+</tr>
+<tr>
+<td class="td1">0xAA02</td>
+<td class="td1">43522</td>
+<td class="td1">写OEM寄存器失败</td>
+</tr>
+<tr>
+<td class="td1">0xAA03</td>
+<td class="td1">43523</td>
+<td class="td1">读OEM寄存器失败</td>
+</tr>
+<tr>
+<td class="td1">0xAA04</td>
+<td class="td1">43524</td>
+<td class="td1">该命令执行失败</td>
+</tr>
+<tr>
+  <td class="td1">0xAA2A</td>
+  <td class="td1">43562</td>
+  <td class="td1">OEM格式化失败</td>
+</tr>
+<tr>
+<td class="td1">0xAA31</td>
+<td class="td1">43569</td>
+<td class="td1">载波开启或关闭操作失败(未接天线)，需要接天线或频谱仪</td>
+</tr>
+<tr>
+<td class="td1">0xAA40</td>
+<td class="td1">43584</td>
+<td class="td1">表示保存配置命令写OEM寄存器失败</td>
+</tr>
+<tr>
+<td class="td1">0xAA4A</td>
+<td class="td1">43594</td>
+<td class="td1">驻波检测失败，可能需要检查硬件问题</td>
+</tr>
+<tr>
+<td class="td1">0xAA4B</td>
+<td class="td1">43595</td>
+<td class="td1">表示复位或上下电等操作失败</td>
+</tr>
+<tr>
+<td class="td1">0xAA4C</td>
+<td class="td1">43596</td>
+<td class="td1">表示未有有效的设置多标签匹配过滤数据</td>
+</tr>
+<tr>
+<td class="td1">0xAA4D</td>
+<td class="td1">43597</td>
+<td class="td1">表示设置SESSION2 /SESSION3  TARGET 为A失败</td>
+</tr>
+<tr>
+<td class="td1">0xAA55</td>
+<td class="td1">43605</td>
+<td class="td1">用户自定义存储区命令，读写执行失败</td>
+</tr>
+<tr>
+<td class="td1">0xAA56</td>
+<td class="td1">43606</td>
+<td class="td1">用户自定义命令配置或读取执行失败</td>
+</tr>
+<tr>
+<td class="td1">0xEE01</td>
+<td class="td1">60929</td>
+<td class="td1">芯片未执行到应用层错误</td>
+</tr>
+<tr>
+<td class="td1">0xEE02</td>
+<td class="td1">60930</td>
+<td class="td1">芯片固件启动升级失败</td>
+</tr>
+<tr>
+  <td class="td1">0xEE03</td>
+  <td class="td1">60931</td>
+  <td class="td1">芯片固件继续升级失败</td>
+</tr>
+<tr>
+<td class="td1">0xEE04</td>
+<td class="td1">60932</td>
+<td class="td1">芯片固件结束升级失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF11</td>
+<td class="td1">65297</td>
+<td class="td1">FLASH初始化失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF12</td>
+<td class="td1">65298</td>
+<td class="td1">GPIO初始化失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF13</td>
+<td class="td1">65299</td>
+<td class="td1">定时器初始化失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF14</td>
+<td class="td1">65300</td>
+<td class="td1">SPI初始化失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF15</td>
+<td class="td1">65301</td>
+<td class="td1">天线控制初始化失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF16</td>
+<td class="td1">65302</td>
+<td class="td1">频段初始化失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF17</td>
+<td class="td1">65303</td>
+<td class="td1">EX10初始化失败</td>
+</tr>
+<tr>
+<td class="td1">0xFF1F</td>
+<td class="td1">65311</td>
+<td class="td1">固件异常</td>
+</tr>
+<tr>
+<td class="td1">0xFFFF</td>
+<td class="td1">65535</td>
+<td class="td1">硬件版本号错误</td>
+</tr>
+<tr>
+  <td class="td1">非0</td>
+  <td class="td1">非0</td>
+  <td class="td1">命令执行失败</td>
+</tr>
+
+      </tbody>
+      </table>
+      <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>

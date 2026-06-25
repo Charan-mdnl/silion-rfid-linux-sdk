@@ -1,0 +1,18 @@
+var searchData=
+[
+  ['closereader_0',['CloseReader',['../_module_reader_8h.html#a96688388f9fb011d0aab2f89de9a0797',1,'ModuleReader.h']]],
+  ['cmd_1',['CMD',['../struct_m_o_d_u_s_p_a_r_m_s.html#a3a15fa6f8ffa316e5aa9f4864fe7d7e3',1,'MODUSPARMS']]],
+  ['cmdtype_2',['CmdType',['../struct_i_m_p_i_n_j_m4_qt_para.html#a7ac29163680d3dcce34cbd358ec08f44',1,'IMPINJM4QtPara']]],
+  ['confgi_5fbank_5fsec_3',['Confgi_Bank_Sec',['../_module_reader_8h.html#a9c409b4ca80440102feeeb161db151a9a64512d031e3472ee5fda3cc36b4bf6a0',1,'ModuleReader.h']]],
+  ['config_5fbank_5fpro_4',['Config_Bank_Pro',['../_module_reader_8h.html#a9c409b4ca80440102feeeb161db151a9a573f1327d8fbbcc4cd50cc99ecdb324b',1,'ModuleReader.h']]],
+  ['connants_5fst_5',['ConnAnts_ST',['../struct_conn_ants___s_t.html',1,'']]],
+  ['connectedants_6',['connectedants',['../struct_conn_ants___s_t.html#ac0616403c16ccaff1396e7a76e89809e',1,'ConnAnts_ST']]],
+  ['cookie_7',['cookie',['../struct_on_reading_error_block.html#a3372130425ba05990e1b2baeb0afa133',1,'OnReadingErrorBlock::cookie'],['../struct_on_tag_read_block.html#aeeff1e96a8cdf248e12b8d156c75fd06',1,'OnTagReadBlock::cookie'],['../struct_on_gpi_trigger_block.html#a70804a606a3cafc73e69c2939c2e22ec',1,'OnGpiTriggerBlock::cookie'],['../struct_on_inv_idle_block.html#a22e172419df6f894fb912d83b6eb28a5',1,'OnInvIdleBlock::cookie']]],
+  ['cparamlen_8',['CParamlen',['../struct_custom_param___s_t.html#aa70e10b2e4f4524f3605dbee20c2bf7c',1,'CustomParam_ST']]],
+  ['crc_9',['CRC',['../struct_t_a_g_i_n_f_o.html#ae52a5256886633eebdb8b8caca3e5dbd',1,'TAGINFO']]],
+  ['customcmd_10',['CustomCmd',['../_module_reader_8h.html#a41738f30ecba353a43700ff67074b29f',1,'ModuleReader.h']]],
+  ['customcmd_5fbasetype_11',['CustomCmd_BaseType',['../_module_reader_8h.html#a92f340378bc94b1b5b8f81309a0b303c',1,'ModuleReader.h']]],
+  ['customcmdtype_12',['CustomCmdType',['../_module_reader_8h.html#a6d00d18cacd340486172f563a4b3738d',1,'ModuleReader.h']]],
+  ['customkey_13',['customkey',['../struct_default___param.html#a2d7d07278f8421495f458d95968540cd',1,'Default_Param']]],
+  ['customparam_5fst_14',['CustomParam_ST',['../struct_custom_param___s_t.html',1,'']]]
+];

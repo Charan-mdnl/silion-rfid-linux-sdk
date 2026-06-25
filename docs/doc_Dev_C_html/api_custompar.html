@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ModuleAPI_C_doc 自定义参数配置</title>
+<link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+<link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+<link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+<link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ModuleAPI_C_doc
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../doc_API_C_html/',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('api_custompar.html','../doc_API_C_html/'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+
+<div class="header">
+  <div class="headertitle"><div class="title">自定义参数配置</div></div>
+</div><!--header--> 
+    <div class="beftitle">
+        自定义参数配置主要是为了适应读写器功能扩展和不同产品相关差异，自定义参数配置获取也使用<a href=../doc_API_C_html/_module_reader_8h.html#a73abe16974ffe8bcddce3d9c04bdbca0>ParamGet</a>和
+        <a href=../doc_API_C_html/_module_reader_8h.html#a2b7fe9b7b2f8f73b9449457942ac6def>ParamSet</a>函数，并且固定参数关键字为<a href=../doc_API_C_html/_module_reader_8h.html#a78992ddf5a4008d368b0ba2a5f680c25aa6d0f305c25681c6e8208acce277661a>
+          MTR_PARAM_CUSTOM</a>。<br>参数值类型也固定为<a href=../doc_API_C_html/struct_custom_param___s_t.html>CustomParam_ST</a>类型。
+          CustomParam_ST 类型定义较为复杂。不过用法基本固定，用此项参数配置直接引用相关示例即可。
+
+        </div>
+         
+        <div id="codeexmple_easy">
+          <link href="./css/prettify.css" rel="stylesheet" />
+          <script src="./js/prettify.min.js"></script>
+    
+          <script>
+            window.onload = function () {
+              prettyPrint();
+            };
+          </script>
+        <H4 id="sample14">C语言代码示例14-自定义扩展参数</H4>
+        <pre class="prettyprint lang-c"><code>
+          /**
+          *   自定义扩展参数/custom paramters
+          */
+          #include < stdio.h>
+          #include "ModuleReader.h"
+          
+          void main()
+          {
+            char c;
+            int hreader;
+            READER_ERR err;
+            int ants[] = {1};
+            int tagcnt;
+            int timeout=200;
+            TAGINFO tag_;
+            int i;
+            int f;
+            CustomParam_ST cpara,cst;
+          
+            unsigned char paraBuf_exfast[50+22]="Reader/Ex10fastmode";
+            unsigned char paraBuf_fastid[51]="tagcustomcmd/fastid";
+            unsigned char paraBuf_tagfocus[51]="tagcustomcmd/tagfocus";
+            unsigned char paraBuf_savby[51]="Reader/Savestandby";
+            unsigned char paraBuf_ducyc[54]="Reader/dutycycle";
+            unsigned char paraBuf_pwmd[51]="Reader/powermode";
+            unsigned char paraBuf_rssif[54]="Reader/rssifilter";
+            short timeout_keep=5000;//ms
+            short timeout_base=1000;//ms
+            char out[400];
+            printf("custom params example.\n");
+          
+            //连接地址为com4,如果指定波特率则可以例如:com4:921600,模块天线端口为1，
+            //注意并非已连接天线的数量，指模块的天线端口总数量
+            //connect to "com4",if you want to speciate the baudrate,you could input the address as "com4:921600".1 means 1 antenna port.
+            //note:the antenna port numbers is all of reader， not the connected antennas numbers.
+            err=InitReader_Notype(&hreader, "192.168.1.160", 1);
+            if (err != MT_OK_ERR)
+            {
+              printf("init the reader err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);
+              return ;
+            }
+            printf("init the reader successfully\n");
+          
+            //切换通用快速模式和EX快速模式/switch fastmode and EX fast mode
+            paraBuf_exfast[50]=1;// 1 enable ex10fastmode，0 genral fast mode
+            paraBuf_exfast[51]=20;
+            for(i=52;i< paraBuf_exfast[51];i++)
+            {	
+              if(i==0)
+              {
+                paraBuf_exfast[i]=0;//0 more tags, 1 less tags.
+              }
+              paraBuf_exfast[i]=0;
+            }
+            cpara.pCusParam =paraBuf_exfast;
+            cpara.CParamlen=22;
+            err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+          
+            memset(paraBuf_exfast+50,0,22);
+            cst.pCusParam =paraBuf_exfast;
+            err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+            if (err != MT_OK_ERR)
+            {
+              printf("get fastmode err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);	 
+            }
+            memset(out,0,400);
+            Hex2Str((unsigned char*)(cst.pCusParam)+50,22,out);
+            printf("Reader/Ex10fastmode:%s\n",out);
+          
+            //启用 fastid /enable fastid
+            paraBuf_fastid[50]=1;
+            cpara.pCusParam =paraBuf_fastid;
+            cpara.CParamlen=1;
+            err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+          
+            memset(paraBuf_fastid+50,0,1);
+            cst.pCusParam =paraBuf_fastid;
+            err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+            if (err != MT_OK_ERR)
+            {
+              printf("get fastmode err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);	 
+            }
+            memset(out,0,400);
+            Hex2Str((unsigned char*)(cst.pCusParam)+50,1,out);
+            printf("Reader/fastid:%s\n",out);
+          
+            //启用 tagfocus /enable tagfocus
+            paraBuf_tagfocus[50]=1;
+            cpara.pCusParam =paraBuf_tagfocus;
+            cpara.CParamlen=1;
+            err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+          
+            memset(paraBuf_tagfocus+50,0,1);
+            cst.pCusParam =paraBuf_tagfocus;
+            err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+            if (err != MT_OK_ERR)
+            {
+              printf("get tagfocus err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);	 
+            }
+            memset(out,0,400);
+            Hex2Str((unsigned char*)(cst.pCusParam)+50,1,out);
+            printf("Reader/tagfocus:%s\n",out);
+          
+            //启用 Savestandby /enable Savestandby
+            paraBuf_savby[50]=1;
+            cpara.pCusParam =paraBuf_savby;
+            cpara.CParamlen=1;
+            err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+          
+            memset(paraBuf_savby+50,0,1);
+            cst.pCusParam =paraBuf_savby;
+            err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+            if (err != MT_OK_ERR)
+            {
+              printf("get Savestandby err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);	 
+            }
+            memset(out,0,400);
+            Hex2Str((unsigned char*)(cst.pCusParam)+50,1,out);
+            printf("Reader/Savestandby:%s\n",out);
+          
+            //启用 powermode /enable powermode
+            paraBuf_pwmd[50]=3;
+            cpara.pCusParam =paraBuf_pwmd;
+            cpara.CParamlen=1;
+            err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+          
+            memset(paraBuf_pwmd+50,0,1);
+            cst.pCusParam =paraBuf_pwmd;
+            err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+            if (err != MT_OK_ERR)
+            {
+              printf("get powermode err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);	 
+            }
+            memset(out,0,400);
+            Hex2Str((unsigned char*)(cst.pCusParam)+50,1,out);
+            printf("Reader/powermode:%s\n",out);
+          
+            //设置占空比 /dutycycle
+            paraBuf_ducyc[50]=(unsigned char)((timeout_keep&0xff00)>>8);
+            paraBuf_ducyc[51]=(unsigned char)(timeout_keep&0x00ff); 
+            paraBuf_ducyc[52]=(unsigned char)((timeout_base&0xff00)>>8);
+            paraBuf_ducyc[53]=(unsigned char)(timeout_base&0x00ff);
+            cpara.pCusParam =paraBuf_ducyc;
+            cpara.CParamlen=4;
+            err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+          
+            memset(paraBuf_ducyc+50,0,4);
+            cst.pCusParam =paraBuf_ducyc;
+            err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+            if (err != MT_OK_ERR)
+            {
+              printf("get dutycycle err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);	 
+            }
+            memset(out,0,400);
+            Hex2Str((unsigned char*)(cst.pCusParam)+50,4,out);
+            printf("Reader/dutycycle:%s\n",out);
+          
+            //启用 rssifilter /enable rssifilter
+            paraBuf_rssif[50]=1;
+            paraBuf_rssif[51]=0xAA;
+            paraBuf_rssif[52]=-80;
+            paraBuf_rssif[53]=0x00;
+            cpara.pCusParam =paraBuf_rssif;
+            cpara.CParamlen=4;
+            err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+          
+            memset(paraBuf_rssif+50,0,4);
+            cst.pCusParam =paraBuf_rssif;
+            err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+            if (err != MT_OK_ERR)
+            {
+              printf("get rssifilter err :%d,input any key to exit!\n", err);
+              scanf("%c",&c);	 
+            }
+            memset(out,0,400);
+            Hex2Str((unsigned char*)(cst.pCusParam)+50,4,out);
+            printf("Reader/rssifilter:%s\n",out);
+           
+            printf("close the reader.input any key to exit!\n");
+            CloseReader(hreader);
+            scanf("%c",&c);
+          }
+      
+        </code></pre>
+        <H4>C语言代码示例14-自定义扩展参数 输出结果</H4>
+    <style>
+      .responsive-image2 {
+        object-fit: contain;
+        width: 50%;
+        /* 或者使用具体的像素值，如：width: 200px; */
+        height: auto;
+        /* 高度自动调整以保持图片原始宽高比 */
+      }
+    </style>
+    <img src="images/test_custom_print.png" alt="输出结果" class="responsive-image2" />
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>

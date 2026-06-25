@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ModuleAPI_C_doc  盘存标签</title>
+<link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+<link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+<link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+<link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ModuleAPI_C_doc
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../doc_API_C_html/',true,false,'search.php','search',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('api_inventory.html','../doc_API_C_html/'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">NoMatches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="header">
+  <div class="headertitle"><div class="title">Inventory</div></div>
+</div><!--header-->  
+
+  <p>Inventory or inventorying operations generally refer to the process of reading the EPC IDs of tags by polling the antennas according to specified rules. The module's 
+    antenna polling sequence starts from the smallest antenna number and switches to the next antenna either when no new tags are detected within a specified duration or 
+    when the maximum dwell time for the current antenna is reached. The time threshold for determining a new tag is fixed internally by the reader and cannot be configured,
+     whereas the maximum antenna dwell time can be set using the parameter <a href="../doc_API_C_html/_module_reader_8h.html#a78992ddf5a4008d368b0ba2a5f680c25ad10e799e39021edbadbd0aa2d93dc51a">MTR_PARAM_RF_HOPANTTIME</a>.
+   </p>
+  <p>Reader inventory methods can be broadly categorized into two types. One is referred to as "Synchronous/Normal/Buffered" mode inventory, which is a blocking, 
+    synchronous approach. The other is Fast mode inventory, a non-blocking method. Fast mode can be further subdivided based on the reader's capabilities. Readers based 
+    on the R2000 chip and the E-series chip support Fast mode inventory, with the E-series also supporting an enhanced variant known as Ex Fast mode inventory. Both modes 
+    require active calls to specific API interface functions.</p>
+  <p>The API also supports an asynchronous inventory method, which is encapsulated using an internal thread. Tag data and other information are returned via callback 
+    functions.</p>
+  <p>During inventory operations, in addition to acquiring the tag's EPC ID, embedded read commands can be configured. This allows reading data from a specified memory 
+    bank by setting the parameter <a href="../doc_API_C_html/_module_reader_8h.html#a78992ddf5a4008d368b0ba2a5f680c25aa001427e90370442802fe4338f4c7169">MTR_PARAM_TAG_EMBEDEDDATA</a>. 
+    When a read command is embedded in the inventory operation, the returned tag data will include the additional
+     read data. The EmbededDataLen member of the <a href="../doc_API_C_html/struct_t_a_g_i_n_f_o.html">TAGINFO</a> structure indicates the length (in bytes) of this 
+     additional data. If no read command is embedded or if the embedded read command fails, this member will be 0, indicating no additional data is present. This setting only takes effect for operations on Gen2 tags.
+  </p>
+  <p>Inventoried tags are stored in a <a href=../doc_API_C_html/struct_t_a_g_i_n_f_o.html>TAGINFO</a>  object. The EpcId member represents the tag's EPC ID as a byte array.
+     To display the EPC ID as a hexadecimal string, the function <a href="../doc_API_C_html/_module_reader_8h.html#abe33b643c6bf945a880f7a6664465945">Hex2Str</a> should be 
+     used for conversion. Other commonly used conversion functions include Str2Hex and <a href="../doc_API_C_html/_module_reader_8h.html#abe33b643c6bf945a880f7a6664465945">Str2Hex</a>.</p>
+<div class="beftitle">
+&nbsp;&nbsp;
+</div>
+
+    
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Producer <a href="https://www.doxygen.org/index.html"><img class="footer" src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>

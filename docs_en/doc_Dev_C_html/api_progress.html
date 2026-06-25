@@ -1,0 +1,837 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.11.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ModuleAPI_C_doc Development process</title>
+  <link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+  <script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+  <script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+  <link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+  <script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+  <script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+  <script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+  <link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+  <script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+  <link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+      <table cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr id="projectrow">
+            <td id="projectalign">
+              <div id="projectname">ModuleAPI_C_doc
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end header part -->
+    <!-- 制作者 Doxygen 1.11.0 -->
+    <script type="text/javascript">
+      /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+      var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/", '.html');
+      /* @license-end */
+    </script>
+    <script type="text/javascript">
+      /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+      $(function () { codefold.init(0); });
+      /* @license-end */
+    </script>
+    <script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+    <script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+    <script type="text/javascript">
+      /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+      $(function () {
+        initMenu('../doc_API_C_html/', true, false, 'search.php', 'search', true);
+        $(function () { init_search(); });
+      });
+      /* @license-end */
+    </script>
+    <div id="main-nav"></div>
+  </div><!-- top -->
+  <div id="side-nav" class="ui-resizable side-nav-resizable">
+    <div id="nav-tree">
+      <div id="nav-tree-contents">
+        <div id="nav-sync" class="sync"></div>
+      </div>
+    </div>
+    <div id="splitbar" style="-moz-user-select:none;" class="ui-resizable-handle">
+    </div>
+  </div>
+  <script type="text/javascript">
+    /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+    $(function () { initNavTree('api_progress.html', '../doc_API_C_html/'); initResizable(true); });
+    /* @license-end */
+  </script>
+  <div id="doc-content">
+    <!-- window showing the filter options -->
+    <div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()"
+      onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+    </div>
+
+    <!-- iframe showing the search results (closed by default) -->
+    <div id="MSearchResultsWindow">
+      <div id="MSearchResults">
+        <div class="SRPage">
+          <div id="SRIndex">
+            <div id="SRResults"></div>
+			<div class="SRStatus" id="Loading">Loading...</div>
+			<div class="SRStatus" id="Searching">Searching...</div>
+			<div class="SRStatus" id="NoMatches">NoMatches</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contents">
+
+      <div class="header">
+        <div class="headertitle">
+          <div class="title">Development process</div>
+        </div>
+      </div><!--header-->
+      <div class="iframe_title">Reader lifecycle</div>
+      <div class="beftitle">
+        &nbsp;
+      </div>
+      <div class="beftitle">
+        Firstly, you should call<a
+          href=../doc_API_C_html/_module_reader_8h.html#a82c6eeba8206562c555eca7c538cea2d>InitReader_Notype</a> function to initialize the reader, and then you can call <a
+          href=../doc_API_C_html/_module_reader_8h.html#a2b7fe9b7b2f8f73b9449457942ac6def>ParamSet</a> or <a
+          href=../doc_API_C_html/_module_reader_8h.html#a73abe16974ffe8bcddce3d9c04bdbca0>ParamGet</a> function  to configure the reader;Next, you can call tag operations 
+		  and peripheral functional functions.Call <a
+          href=../doc_API_C_html/_module_reader_8h.html#a96688388f9fb011d0aab2f89de9a0797>CloseReader</a> function means that you no longer use the reader.
+      </div>
+      <div style="text-align: center;  margin-top: 20px;  margin-bottom: 20px; margin-right: 70px; margin-left:70px; ">
+        <embed src="images/ReaderCycle.svg" width=100% type="image/svg+xml" />
+      </div>
+
+	  <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	<p>The main functions and steps are described in the table below：</p>
+    <style id="mapsty">
+        table1 {
+          margin-left: auto;
+          margin-right: auto;
+          text-align: center;
+        }
+         
+        .th1, .td1 {
+          border: 1px solid black;
+          padding: 5px;
+          vertical-align: middle; /* 垂直居中 */
+          text-align: center; /* 水平居中 */
+        }
+        </style>
+    <table class="table1">
+        <thead>
+        <tr >
+        <th class="th1">Execution Steps</th>
+        <th class="th1">Functional interface</th>
+        <th class="th1">Functional Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="td1">1</td>
+            <td class="td1">InitReader_Notype</td>
+            <td class="td1">Connect/Initialize Reader</td>
+        </tr>
+        </tbody>
+        </table>
+
+		<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+		<table class="table2">
+			<thead>
+			<tr >
+				<th class="th1">Execution Steps</th>
+				<th class="th1">Functional interface</th>
+				<th class="th1">Functional Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="td1">2</td>
+				<td class="td1">ParamGet</td>
+				<td class="td1">Get Parameters</td>
+			</tr>
+			</tbody>
+			</table>
+
+			<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+		<table class="table3">
+			<thead>
+			<tr >
+				<th class="th1">Execution Steps</th>
+				<th class="th1">Functional interface</th>
+				<th class="th1">Functional Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="td1">2</td>
+				<td class="td1">ParamSet</td>
+				<td class="td1">Set Parameters</td>
+			</tr>
+			</tbody>
+			</table>
+
+			<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<table class="table4">
+				<thead>
+				<tr >
+					<th class="th1">Execution Steps</th>
+					<th class="th1">Functional interface</th>
+					<th class="th1">Functional Description</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td class="td1">3-1</td>
+					<td class="td1">TagInventory_Raw</td>
+					<td class="td1" rowspan="2">Synchronized inventory</td>
+				</tr>
+				<tr>
+					<td class="td1">3-2</td>
+					<td class="td1">GetNextTag</td>
+					 
+				</tr>
+				</tbody>
+				</table>
+
+				<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<table class="table5">
+					<thead>
+					<tr >
+						<th class="th1">Execution Steps</th>
+						<th class="th1">Functional interface</th>
+						<th class="th1">Functional Description</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td class="td1">3-1</td>
+						<td class="td1">AsyncStartReading</td>
+						<td class="td1" rowspan="4">Fast mode invenotry</td>
+					</tr>
+					<tr>
+						<td class="td1">3-2</td>
+						<td class="td1">AsyncGetTagCount</td>
+						 
+					</tr>
+					<tr>
+						<td class="td1">3-3</td>
+						<td class="td1">AsyncGetNextTag</td>
+						 
+					</tr>
+					<tr>
+						<td class="td1">3-4</td>
+						<td class="td1">AsyncStopReading</td>
+						 
+					</tr>
+					</tbody>
+					</table>
+
+					<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<table class="table6">
+					<thead>
+					<tr >
+						<th class="th1">Execution Steps</th>
+						<th class="th1">Functional interface</th>
+						<th class="th1">Functional Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						
+					<tr>
+						<td class="td1">3-1</td>
+						<td class="td1">TagReadHandler,SetTagReadHandler</td>
+						<td class="td1" rowspan="5">Asynchronous inventory</td>
+					</tr>
+					<tr>
+						<td class="td1">3-1</td>
+						<td class="td1">ReadingErrorHandler,SetReadingErrorHandler</td>
+						 
+					</tr>
+					<tr>
+						<td class="td1">3-1</td>
+						<td class="td1">GpiStateHandler&GpiTriggerBoundaryHandler,SetGpiTriggerHandler</td>
+						 
+					</tr>
+					<tr>
+						<td class="td1">3-2</td>
+						<td class="td1">StartReading</td>
+						 
+					</tr>
+					<tr>
+						<td class="td1">3-3</td>
+						<td class="td1">StopReading</td>
+						 
+					</tr>
+					</tbody>
+					</table>
+					<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					<table class="table7">
+						<thead>
+						<tr >
+							<th class="th1">Execution Steps</th>
+							<th class="th1">Functional interface</th>
+							<th class="th1">Functional Description</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td class="td1">3-1</td>
+							<td class="td1">GetTagData</td>
+							<td class="td1">read tag bank</td>
+						</tr>
+						<tr>
+							<td class="td1">3-1</td>
+							<td class="td1">GetTagDataEx</td>
+							<td class="td1">read tag bank(impinj QT Functions）</td>
+						</tr>
+						</tbody>
+						</table>
+						<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						<table class="table8">
+							<thead>
+							<tr >
+								<th class="th1">Execution Steps</th>
+								<th class="th1">Functional interface</th>
+								<th class="th1">Functional Description</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="td1">3-1</td>
+								<td class="td1">WriteTagData</td>
+								<td class="td1">write tag bank</td>
+							</tr>
+							<tr>
+								<td class="td1">3-1</td>
+								<td class="td1">WriteTagEpcEx</td>
+								<td class="td1">initialize EPC ID</td>
+							</tr>
+							</tbody>
+							</table>
+							<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+						<table class="table9">
+							<thead>
+							<tr >
+								<th class="th1">Execution Steps</th>
+								<th class="th1">Functional interface</th>
+								<th class="th1">Functional Description</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="td1">3-1</td>
+								<td class="td1">WriteTagData（write access password）</td>
+								<td class="td1" rowspan="2">lock tag</td>
+							</tr>
+							<tr>
+								<td class="td1">3-2</td>
+								<td class="td1">LockTag</td>
+							</tr>
+							</tbody>
+							</table>
+							<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							<table class="table10">
+								<thead>
+								<tr >
+									<th class="th1">Execution Steps</th>
+									<th class="th1">Functional interface</th>
+									<th class="th1">Functional Description</th>
+								</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="td1">3-1</td>
+										<td class="td1">WriteTagData（write kill password）</td>
+										<td class="td1" rowspan="2">Kill tag</td>
+									</tr>
+								<tr>
+									<td class="td1">3-2</td>
+									<td class="td1">KillTag</td>
+							 
+								</tr>
+								</tbody>
+								</table>
+
+								<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+							<table class="table11">
+								<thead>
+								<tr >
+									<th class="th1">Execution Steps</th>
+									<th class="th1">Functional interface</th>
+									<th class="th1">Functional Description</th>
+								</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="td1">3-1</td>
+										<td class="td1">GetGPI</td>
+										<td class="td1" rowspan="3">GPIO Peripheral functions</td>
+									</tr>
+								<tr>
+									<td class="td1">3-1</td>
+									<td class="td1">GetGPIEx</td>
+							 
+								</tr>
+								<tr>
+									<td class="td1">3-1</td>
+									<td class="td1">SetGPO</td>
+							 
+								</tr>
+								</tbody>
+								</table>
+								<div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+		<table class="table12">
+			<thead>
+			<tr >
+				<th class="th1">Execution Steps</th>
+				<th class="th1">Functional interface</th>
+				<th class="th1">Functional Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="td1">4</td>
+				<td class="td1">CloseReader</td>
+				<td class="td1">Close reader,release resources</td>
+			</tr>
+			</tbody>
+			</table>
+        <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+      <div id="codeexmple_easy">
+        <link href="./css/prettify.css" rel="stylesheet" />
+        <script src="./js/prettify.min.js"></script>
+
+        <script>
+          window.onload = function () {
+            prettyPrint();
+          };
+        </script>
+        
+        <H4 id="sample1">C Language Code Example 1- Synchronized Inventory</H4>
+        <pre class="prettyprint lang-c"><code>
+			/**
+			*   普通模式盘点标签10次/genreral mode inventory 10 times
+			*/
+			#include < stdio.h>
+			#include "ModuleReader.h"
+			
+			void main()
+			{
+				char c;
+				int hreader;
+				READER_ERR err;
+				int ants[] = {1};
+				int tagcnt;
+				int timeout=200;
+				TAGINFO tag_;
+				int i,j;
+				int f;
+				printf("inventory tags example.\n");
+			
+				//连接地址为com4,如果指定波特率则可以例如:com4:921600,模块天线端口为1，
+				//注意并非已连接天线的数量，指模块的天线端口总数量
+				//connect to "com4",if you want to speciate the baudrate,you could input the address as "com4:921600".1 means 1 antenna port.
+				//note:the antenna port numbers is all of reader， not the connected antennas numbers.
+				err=InitReader_Notype(&hreader, "com4", 1);
+				if (err != MT_OK_ERR)
+				{
+					printf("init the reader err :%d,input any key to exit!\n", err);
+					scanf("%c",&c);
+					return ;
+				}
+				printf("init the reader successfully\n");
+			
+				for(i=0;i< 10;i++)
+				{
+					err = TagInventory_Raw(hreader, ants, sizeof(ants)/sizeof(ants[0]), timeout, &tagcnt);
+					if (err == MT_OK_ERR)
+					{
+						printf("invenotry ---------------- tagcnt:%d\n", tagcnt);
+						
+						 for (j = 0; j < tagcnt; ++j)
+						 {
+							err = GetNextTag(hreader, &tag_);
+							//获取缓冲区标签一旦出错，不可以继续获取，重新盘点标签。
+							//if failed when called getnexttag,you should inventory again.
+							if(err!=MT_OK_ERR)
+								break;
+			
+							 printf("epcid:");
+							 for(f = 0; f < tag_.Epclen; ++f)
+							 {
+								 printf("%02X", tag_.EpcId[f]);
+							 }
+							printf(" by ant %d, fre:%d rssi:%d\n", tag_.AntennaID, tag_.Frequency,tag_.RSSI-256);
+						 }
+					}
+			
+					if(err!=MT_OK_ERR)
+					{ 
+						printf("inventory tags err:%d\n", err);
+					}
+				}
+			
+				printf("close the reader.input any key to exit!\n");
+				CloseReader(hreader);
+				scanf("%c",&c);
+			}
+			
+        </code></pre>
+        <H4>C Language Code Example 1  Output Results</H4>
+        <style>
+          .responsive-image {
+            object-fit: contain;
+            width: 40%;
+            /* 或者使用具体的像素值，如：width: 200px; */
+            height: auto;
+            /* 高度自动调整以保持图片原始宽高比 */
+          }
+        </style>
+        <img src="images/test_inventory10_print.png" alt=" Output Results" class="responsive-image" />
+
+        <H4  id="sample2">C Language Code Example 2-Read/write tag bank</H4>
+        <pre class="prettyprint lang-c"><code>
+			/**
+			*   读写标签存储区/read and write tag's banks
+			*/
+			#include < stdio.h>
+			#include "ModuleReader.h"
+			
+			#define BLOCK 2
+			void main()
+			{
+				char c;
+				int hreader;
+				READER_ERR err;
+				int ant= 1;
+				int bank=3;
+				int startadr=0;
+				int timeout=1000;
+				int i;
+				unsigned char rdata[BLOCK*2];
+				unsigned char wdata[BLOCK*2];
+				char hexctr[BLOCK*2*2];
+				unsigned char accesspwd[4];
+			
+				printf("read and write tag bank example.\n");
+			
+				//连接地址为192.168.1.160,默认8080.如果指定端口则可以例如:192.168.1.160:8090,模块天线端口为8，
+				//注意并非已连接天线的数量，指模块的天线端口总数量
+				//connect to "com4",if you want to speciate the baudrate,you could input the address as "com4:921600".1 means 1 antenna port.
+				//note:the antenna port numbers is all of reader， not the connected antennas numbers.
+				err=InitReader_Notype(&hreader, "192.168.1.160", 8);
+				if (err != 0)
+				{
+					printf("init the reader err :%d input any key to exit!\n", err);
+					scanf("%c",&c);
+					return ;
+				}
+				printf("init the reader successfully\n");
+			  
+				//标签出厂时，访问密码都是全0,如果标签已经被锁定则根据实际情况设
+				//置访问密码
+				//the access password is  0 when the tags are manufactured. you should set right password if tag is had locked.
+				memset(accesspwd, 0, 4);
+				//读标签存储区，超时时间设置为1000ms，也即操作函数最长会阻塞
+				//1000ms左右，如果在超时时间以内完成操作或出现错误则会提前返回
+				//read to a tag's bank,it will block until be finish.Maximum blocking time is 1000ms.
+				err = GetTagData(hreader, ant, bank, startadr, BLOCK, rdata, accesspwd, timeout);
+				if (err != MT_OK_ERR)
+				{
+					printf("GetTagData failed,check whether the tag has user bank. err:%d input any key to exit!\n",err);
+					scanf("%c",&c);
+				}
+			
+				Hex2Str(rdata,BLOCK*2,hexctr);
+				printf("read the data:%s\n",hexctr);
+			
+				for(i=0;i< BLOCK*2;i++)
+					wdata[i]=rdata[BLOCK*2-1-i];
+			
+				err = WriteTagData(hreader, ant, bank, startadr, wdata,sizeof(wdata)/sizeof(wdata[0]), accesspwd, timeout);
+				if (err != MT_OK_ERR)
+				{
+					printf("WriteTagData failed, check whether the tag has user bank. err:%d input any key to exit!\n",err);
+					scanf("%c",&c);
+				}
+			
+				err = GetTagData(hreader, ant, bank, startadr, BLOCK, rdata, accesspwd, timeout);
+				if (err != MT_OK_ERR)
+				{
+					printf("GetTagData failed, check whether the tag has user bank. err:%d input any key to exit!\n",err);
+					scanf("%c",&c);
+				}
+			
+				Hex2Str(rdata,BLOCK*2,hexctr);
+				printf("read the data:%s again\n",hexctr);
+			
+				printf("close the reader.input any key to exit!\n");
+				CloseReader(hreader);
+				scanf("%c",&c);
+			
+			}
+         </code></pre>
+         <H4>C Language Code Example 2- Output Results</H4>
+        
+         <img src="images/test_readandwrite_print.png" alt="Output Results" class="responsive-image" />
+
+        <H4 id="sample3">C Language Code Example 3-Set parameters the get</H4>
+        <pre class="prettyprint lang-c"><code>
+			/**
+			*   读写器参数获取，设置/get parameters form the reader and set parameters to the reader
+			*/
+			#include < stdio.h>
+			#include "ModuleReader.h"
+			
+			void main()
+			{
+				char c;
+				int hreader;
+				char* address="192.168.1.160";
+				int antportnum=8;
+				READER_ERR err;
+				unsigned short Maxp;
+				unsigned short Minp;
+				unsigned short Wantp=2000;//20dbm
+				AntPowerConf antpwrconf,antpwrconf2;
+				int m_qval;
+				int session;
+				int target;
+				int rfmode;
+				int m_qval2;
+				int session2;
+				int target2;
+				int rfmode2;
+				Region_Conf region;
+				int i,j;
+				ConnAnts_ST conants;
+				HoptableData_ST hoptable,hoptable2;
+				printf("set and get parameter example.\n");
+			
+				//连接地址为192.168.1.160,默认8080.如果指定端口则可以例如:192.168.1.160:8090,模块天线端口为8，
+				//注意并非已连接天线的数量，指模块的天线端口总数量
+				//connect to "com4",if you want to speciate the baudrate,you could input the address as "com4:921600".1 means 1 antenna port.
+				//note:the antenna port numbers is all of reader， not the connected antennas numbers.
+				err=InitReader_Notype(&hreader, address, antportnum);
+				if (err != 0)
+				{
+					printf("init the reader err :%d input any key to exit!\n", err);
+					scanf("%c",&c);
+					return ;
+				}
+				printf("init the reader successfully\n");
+			
+			
+				if ((err=ParamGet(hreader, MTR_PARAM_RF_MAXPOWER, &Maxp)) != MT_OK_ERR)
+				{
+					printf("ParamGet err :%d input any key to exit!\n", err);
+					scanf("%c",&c);
+			
+				}
+				if ((err=ParamGet(hreader, MTR_PARAM_RF_MINPOWER, &Minp)) != MT_OK_ERR)
+				{
+					printf("ParamGet err :%d input any key to exit!\n", err);
+					scanf("%c",&c);
+			
+				}
+			
+				if(Wantp>Maxp||Wantp< Minp)
+				{
+					printf("power value err. input any key to exit!\n");
+					scanf("%c",&c);
+					CloseReader(hreader);
+					return;
+				}
+			
+				//设置功率，功率越大天线覆盖面越大。
+				//设置功率结构体
+				//set power more large more the radiation range.
+				//set to the power struct
+				antpwrconf.antcnt = antportnum;
+				for(i=0;i< antpwrconf.antcnt;i++)
+				{
+					antpwrconf.Powers[i].antid = i+1; //天线号从1开始/ antenna id start since 1
+					antpwrconf.Powers[i].readPower = Wantp; //读功率 /read power
+					antpwrconf.Powers[i].writePower = Wantp; //写功率 /write power
+				}
+				if ((err=ParamSet(hreader, MTR_PARAM_RF_ANTPOWER, &antpwrconf)) != MT_OK_ERR)
+				{
+					printf("ParamSet MTR_PARAM_RF_ANTPOWER err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+			
+				if ((err=ParamGet(hreader, MTR_PARAM_RF_ANTPOWER, &antpwrconf2)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_RF_ANTPOWER err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+			
+				m_qval=5;
+				if ((err=ParamSet(hreader, MTR_PARAM_POTL_GEN2_Q, &m_qval)) != MT_OK_ERR)
+				{
+					printf("ParamSet MTR_PARAM_POTL_GEN2_Q err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				if ((err=ParamGet(hreader, MTR_PARAM_POTL_GEN2_Q, &m_qval2)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_POTL_GEN2_Q err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				printf("ParamGet MTR_PARAM_POTL_GEN2_Q :%d\n",m_qval2);
+			
+				session=1;
+				if ((err=ParamSet(hreader, MTR_PARAM_POTL_GEN2_SESSION, &session)) != MT_OK_ERR)
+				{
+					printf("ParamSet MTR_PARAM_POTL_GEN2_SESSION err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				if ((err=ParamGet(hreader, MTR_PARAM_POTL_GEN2_SESSION, &session2)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_POTL_GEN2_SESSION err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				printf("ParamGet MTR_PARAM_POTL_GEN2_SESSION :%d\n",session2);
+			
+				target=2;
+				if ((err=ParamSet(hreader, MTR_PARAM_POTL_GEN2_TARGET, &target)) != MT_OK_ERR)
+				{
+					printf("ParamSet MTR_PARAM_POTL_GEN2_TARGET err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				if ((err=ParamGet(hreader, MTR_PARAM_POTL_GEN2_TARGET, &target2)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_POTL_GEN2_TARGET err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				printf("ParamGet MTR_PARAM_POTL_GEN2_TARGET :%d\n",target2);
+			
+				rfmode=105;
+				if ((err=ParamSet(hreader, MTR_PARAM_POTL_GEN2_TAGENCODING, &rfmode)) != MT_OK_ERR)
+				{
+					printf("ParamSet MTR_PARAM_POTL_GEN2_TAGENCODING err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				if ((err=ParamGet(hreader, MTR_PARAM_POTL_GEN2_TAGENCODING, &rfmode2)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_POTL_GEN2_TAGENCODING err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				printf("ParamGet MTR_PARAM_POTL_GEN2_TAGENCODING :%d\n",rfmode2);
+			
+			
+				if ((err=ParamGet(hreader, MTR_PARAM_READER_CONN_ANTS, &conants)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_READER_CONN_ANTS err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+					CloseReader(hreader);
+					return;
+				}
+				printf("ParamGet MTR_PARAM_READER_CONN_ANTS :");
+				for(i=0;i< conants.antcnt;i++)
+					printf(" %d",conants.connectedants[i]);
+				printf("\n");
+			
+			
+				region=RG_PRC;
+				if ((err=ParamSet(hreader, MTR_PARAM_FREQUENCY_REGION, & region)) != MT_OK_ERR)
+				{
+					printf("ParamSet MTR_PARAM_FREQUENCY_REGION err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+			
+				if ((err=ParamGet(hreader, MTR_PARAM_FREQUENCY_REGION, & region)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_FREQUENCY_REGION err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+				printf("ParamGet MTR_PARAM_FREQUENCY_REGION :%d\n",region);
+			
+				if ((err=ParamGet(hreader, MTR_PARAM_FREQUENCY_HOPTABLE, &hoptable)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_FREQUENCY_HOPTABLE err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+					CloseReader(hreader);
+					return;
+				}
+				printf("ParamGet MTR_PARAM_FREQUENCY_HOPTABLE :");
+				for(i=0;i< hoptable.lenhtb;i++)
+					printf(" %d",hoptable.htb[i]);
+				printf("\n");
+			
+				hoptable2.lenhtb=hoptable.lenhtb/2;
+				for(i=0,j=0;i< hoptable.lenhtb;i+=2)
+					hoptable2.htb[j++]=hoptable.htb[i];
+			
+				if ((err=ParamSet(hreader, MTR_PARAM_FREQUENCY_HOPTABLE, &hoptable2)) != MT_OK_ERR)
+				{
+					printf("ParamSet MTR_PARAM_FREQUENCY_HOPTABLE err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+			
+				}
+			
+				if ((err=ParamGet(hreader, MTR_PARAM_FREQUENCY_HOPTABLE, &hoptable)) != MT_OK_ERR)
+				{
+					printf("ParamGet MTR_PARAM_FREQUENCY_HOPTABLE err:%d  input any key to exit!\n",err);
+					scanf("%c",&c);
+					CloseReader(hreader);
+					return;
+				}
+				printf("ParamGet MTR_PARAM_FREQUENCY_HOPTABLE again :");
+				for(i=0;i< hoptable.lenhtb;i++)
+					printf(" %d",hoptable.htb[i]);
+				printf("\n");
+			
+				printf("close the reader.input any key to exit!\n");
+				CloseReader(hreader);
+				scanf("%c",&c);
+			}
+                </code></pre>
+                <H4>C  Language Code Example 3- Output Results</H4>
+                <img src="images/test_paramsetget_print.png" alt="Output Results" width="70%" />
+      </div>
+
+
+    </div><!-- contents -->
+  </div><!-- doc-content -->
+  <!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="footer">Producer <a href="https://www.doxygen.org/index.html"><img class="footer"
+            src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen" /></a> 1.11.0 </li>
+    </ul>
+  </div>
+</body>
+
+</html>

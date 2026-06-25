@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['paramget_0',['ParamGet',['../_module_reader_8h.html#a73abe16974ffe8bcddce3d9c04bdbca0',1,'ModuleReader.h']]],
+  ['paramset_1',['ParamSet',['../_module_reader_8h.html#a2b7fe9b7b2f8f73b9449457942ac6def',1,'ModuleReader.h']]],
+  ['pc_2',['PC',['../struct_t_a_g_i_n_f_o.html#a2e414b8211f47c10e8403b0a0b473d8b',1,'TAGINFO']]],
+  ['pcusparam_3',['pCusParam',['../struct_custom_param___s_t.html#ae809d906e90f56aeac0fba4c6114851a',1,'CustomParam_ST']]],
+  ['persisttype_4',['PersistType',['../struct_i_m_p_i_n_j_m4_qt_para.html#ae0179cebe7485e747305128a6483d9ff',1,'IMPINJM4QtPara']]],
+  ['phase_5',['Phase',['../struct_t_a_g_i_n_f_o.html#ad65cfaf0060d46df9c0d6ddbbb1ad30f',1,'TAGINFO']]],
+  ['potl_6',['potl',['../struct_inv___potl.html#a6d368fd2ae493f8f1e3728569a4d70af',1,'Inv_Potl']]],
+  ['potlcnt_7',['potlcnt',['../struct_inv___potls___s_t.html#a80955c5d8895fdb075f54d0a1941be43',1,'Inv_Potls_ST']]],
+  ['potls_8',['potls',['../struct_inv___potls___s_t.html#a1ae7ccb786abeec01696765adf4ddf9d',1,'Inv_Potls_ST']]],
+  ['power_9',['power',['../struct_ant_ports_v_s_w_r.html#a568354b9eb10f52c111fabfdb5e24fc8',1,'AntPortsVSWR']]],
+  ['powers_10',['Powers',['../struct_ant_power_conf.html#a7ae55008d4d8db295a4674bd6787b190',1,'AntPowerConf']]],
+  ['pro_5fnone_11',['Pro_NONE',['../_module_reader_8h.html#ab705858c3d6b527c342c6073c4d22f13a2cbb08c0ee24c6782df67f38928805c7',1,'ModuleReader.h']]],
+  ['pro_5freadandwrite_12',['Pro_ReadAndWrite',['../_module_reader_8h.html#ab705858c3d6b527c342c6073c4d22f13a47a6fd69b2e428bf943f7f3aad969147',1,'ModuleReader.h']]],
+  ['pro_5freadonly_13',['Pro_ReadOnly',['../_module_reader_8h.html#ab705858c3d6b527c342c6073c4d22f13a23e0c418a6874510d3499210790da5fc',1,'ModuleReader.h']]],
+  ['pro_5fwriteonly_14',['Pro_WriteOnly',['../_module_reader_8h.html#ab705858c3d6b527c342c6073c4d22f13a97a5112d5851a94ef852c89c7271a573',1,'ModuleReader.h']]],
+  ['protocol_15',['protocol',['../struct_t_a_g_i_n_f_o.html#a0b101654c44f9c82b4a28cde7e9fa0c9',1,'TAGINFO']]],
+  ['psamtransceiver_16',['PsamTransceiver',['../_module_reader_8h.html#aa7799ac3f622d9921e855f891216e2f8',1,'ModuleReader.h']]]
+];

@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ModuleAPI_C_doc  参数获取</title>
+<link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+<link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+<link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+<link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ModuleAPI_C_doc
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../doc_API_C_html/',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('api_paramget.html','../doc_API_C_html/'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="header">
+  <div class="headertitle"><div class="title">参数获取</div></div>
+</div><!--header-->  
+
+<div class="beftitle">
+    <a href=../doc_API_C_html/_module_reader_8h.html#a73abe16974ffe8bcddce3d9c04bdbca0>ParamGet</a>是获取读写器参数的方法。您可以在读写器的生命周期内随时调用此方法。
+    </div>
+
+    <H4>示例3 常见参数获取 参考</H4>
+    <p><a href=api_progress.html#sample3 >参数配置</a></p>
+
+    <div id="codeexmple_easy">
+      <link href="./css/prettify.css" rel="stylesheet" />
+      <script src="./js/prettify.min.js"></script>
+
+      <script>
+        window.onload = function () {
+          prettyPrint();
+        };
+      </script>
+    <H4 id="sample4">C语言代码示例4-获取读写器相关信息</H4>
+    <pre class="prettyprint lang-c"><code>
+      /**
+      *   获取读写器相关信息/get reader info
+      */
+      #include < stdio.h>
+      #include "ModuleReader.h"
+      
+      void main()
+      {
+        char c;
+        int hreader;
+          READER_ERR err;
+        int ants[] = {1};
+        int tagcnt;
+        int timeout=200;
+        TAGINFO tag_;
+        int i;
+        int f;
+        CustomParam_ST cst;
+        Reader_Ip rip;
+        unsigned char data[200]="reader/moduleinfo";
+        unsigned char  paraBuf[100]="reader/macaddr";
+        char out[400];
+        unsigned char version[64];
+        char rdrip[50];
+        HardwareDetails hddt;
+          printf("get readerinfo example.\n");
+      
+        //连接地址为com4,如果指定波特率则可以例如:com4:921600,模块天线端口为1，
+        //注意并非已连接天线的数量，指模块的天线端口总数量
+        //connect to "com4",if you want to speciate the baudrate,you could input the address as "com4:921600".1 means 1 antenna port.
+        //note:the antenna port numbers is all of reader， not the connected antennas numbers.
+        err=InitReader_Notype(&hreader, "192.168.1.160", 1);
+        if (err != MT_OK_ERR)
+        {
+          printf("init the reader err :%d,input any key to exit!\n", err);
+            scanf("%c",&c);
+          return ;
+        }
+        printf("init the reader successfully\n");
+      
+      
+        //序列号/serial number
+        cst.pCusParam=data; 
+        cst.CParamlen=strlen("reader/moduleinfo");
+          err =ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+        if(err!=MT_OK_ERR)
+        if (err != MT_OK_ERR)
+        {
+          printf("get reader/moduleinfo err :%d,input any key to exit!\n", err);
+            scanf("%c",&c);
+           
+        }
+        Hex2Str(data+66,12,out);
+        printf("serial number:%s\n",out);
+      
+          //mac
+        cst.pCusParam=paraBuf;
+        err=ParamGet(hreader,MTR_PARAM_CUSTOM,&cst);
+        if (err != MT_OK_ERR)
+        {
+          printf("get mac err :%d,input any key to exit!\n", err);
+            scanf("%c",&c);
+           
+        }
+        memset(out,0,400);
+        Hex2Str((unsigned char*)(cst.pCusParam)+50,6,out);
+        printf("mac:%s\n",out);
+      
+        //IP
+        err=ParamGet(hreader,MTR_PARAM_READER_IP,&rip);
+        if (err != MT_OK_ERR)
+        {
+          printf("get IP err :%d,input any key to exit!\n", err);
+            scanf("%c",&c);
+           
+        }
+        printf("ip: %s\n",rip.ip);
+        printf("gateway: %s\n",rip.gateway);
+        printf("mask: %s\n",rip.mask);
+          
+          //verson-serialid
+        memcpy(version,"serialid",strlen("serialid"));
+        err=ParamGet(hreader,MTR_PARAM_READER_VERSION,&version);
+        if (err != MT_OK_ERR)
+        {
+          printf("get VERSION err :%d,input any key to exit!\n", err);
+            scanf("%c",&c);
+           
+        }
+        memset(out,0,400);
+        Hex2Str(version,12,out);
+        printf("version serialid:%s\n",out);
+        //version-bootloader ver,hardware ver,firmware date firmwate ver
+        memcpy(version,"mod_info",strlen("mod_info"));
+        err=ParamGet(hreader,MTR_PARAM_READER_VERSION,&version);
+        if (err != MT_OK_ERR)
+        {
+          printf("get mod_info err :%d,input any key to exit!\n", err);
+            scanf("%c",&c);
+           
+        }
+        memset(out,0,400);
+        Hex2Str(version,16,out);
+        printf("version mod_info:%s\n",out);
+        
+        //version-infacthw
+        memcpy(version,"infacthw",strlen("infacthw"));
+        err=ParamGet(hreader,MTR_PARAM_READER_VERSION,&version);
+        if (err != MT_OK_ERR)
+        {
+          printf("get infacthw err :%d,input any key to exit!\n", err);
+            scanf("%c",&c);
+           
+        }
+        memset(out,0,400);
+        Hex2Str(version,64,out);
+        printf("version infacthw:%s\n",out);
+      
+        //get reader address
+          GetReaderAddress(hreader, rdrip);
+        printf("readeraddress:%s\n",rdrip);
+      
+        //get sdkver
+        printf("sdkver:%d\n",GetSDKVersion());
+      
+        //get hardwate Detail
+        GetHardwareDetails(hreader,&hddt);
+        printf("board:%d\n",hddt.board);
+        printf("logtype:%d\n",hddt.logictype);
+        printf("module:%d\n",hddt.module);
+        printf("checkant:%d\n",hddt.selfcheckants);
+      
+        printf("close the reader.input any key to exit!\n");
+        CloseReader(hreader);
+        scanf("%c",&c);
+      }
+  
+    </code></pre>
+    <H4>C语言代码示例4-获取读写器相关信息 输出结果</H4>
+    <style>
+      .responsive-image {
+        object-fit: contain;
+        width: 80%;
+        /* 或者使用具体的像素值，如：width: 200px; */
+        height: auto;
+        /* 高度自动调整以保持图片原始宽高比 */
+      }
+    </style>
+    <img src="images/test_getreaderinfo_print.png" alt="输出结果" class="responsive-image" />
+  </div>
+
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>

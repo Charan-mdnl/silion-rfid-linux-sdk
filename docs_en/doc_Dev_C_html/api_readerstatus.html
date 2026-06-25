@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ModuleAPI_C_doc  Reader status</title>
+<link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+<link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+<link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+<link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ModuleAPI_C_doc
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../doc_API_C_html/',true,false,'search.php','search',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('api_readerstatus.html','../doc_API_C_html/'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">NoMatches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="header">
+  <div class="headertitle"><div class="title">Reader status</div></div>
+</div><!--header-->  
+
+<p>
+    After power-on, the reader enters the ​​bootloader state​​. At this stage, the API and the reader are in a ​​non-connected state​​, and only firmware upgrade operations can be 
+  performed. The firmware upgrade can be executed using the interface function <a href="../doc_API_C_html/_module_reader_8h.html#a10cd83f19885d9bc58c053bd604f7612">
+    FirmwareLoadFromSerialPort</a>. RFID-related operations are not available in this state.
+    Once the interface <a href=../doc_API_C_html/_module_reader_8h.html#a82c6eeba8206562c555eca7c538cea2d>InitReader_Notype</a> is called to initialize the reader, the reader transitions 
+    to the ​​application layer state​​, also known as the ​​ready state​​. In this state, the API and the reader establish a connection, and all related RFID operations can be performed. If 
+    the link between the API and the reader is disconnected during the ready state, subsequent calls to interface functions will return relevant errors. <br>
+      If an exception occurs during the execution of an RFID interface function, it will return an appropriate error code immediately. This error code can be analyzed to 
+    determine the current connection status between the API and the reader. Minor errors typically do not terminate the connection, whereas severe errors will disrupt the 
+    link, requiring re-initialization of the reader.When an asynchronous fast mode inventory is invoked in the ready state, the reader enters the ​​operational state​​. In this state, 
+    all exceptions are reported via callbacks. If an exception occurs, the reader stops operations and returns to the ready state. However, in cases of hardware issues such as power 
+    instability causing a reader reset, the reader might revert directly to the ​​bootloader state​​, breaking the connection.The connection status between the API and 
+    the reader can be directly checked by calling parameter acquisition interface functions. A successful return indicates the connection is online; otherwise, the connection is broken.
+</p>
+    
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Producer <a href="https://www.doxygen.org/index.html"><img class="footer" src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>

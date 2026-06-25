@@ -1,0 +1,32 @@
+# Build outputs
+read_tags
+try_connect
+*.o
+*.so
+!**/libModuleAPI.so
+**/ReadTags
+**/ReadTags_asyn
+**/ReadTags_event
+
+# Logs and debug files
+*.txt
+*.log
+scanner_result.txt
+serial_output.txt
+serial_log.txt
+strace_log.txt
+safe_scanner_log.txt
+safe_scanner_log_2.txt
+safe_scanner_auto.txt
+safe_scanner_final.txt
+scanner_output_full.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE configurations
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ModuleAPI_C_doc  Error handling</title>
+<link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+<link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+<link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+<link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ModuleAPI_C_doc
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../doc_API_C_html/',true,false,'search.php','search',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('api_error.html','../doc_API_C_html/'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">NoMatches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="header">
+  <div class="headertitle"><div class="title">Error handling</div></div>
+</div><!--header-->  
+
+<div class="beftitle">
+  &nbsp;
+  </div>
+  <div class="beftitle">
+ All API functions that have a return value return <a href="../doc_API_C_html/_module_reader_8h.html#ae7c9abd6997ff9b38c41e4ef71f142a6a31d864b368bd3829bde2fe63d9836791">MT_OK_ERR</a> 
+ upon success. If the return value is MT_iO_ERR, it indicates that there is a 
+ problem with the network connection or serial port connection. You should first call <a href=../doc_API_C_html/_module_reader_8h.html#a96688388f9fb011d0aab2f89de9a0797>CloseReader</a> 
+ and check these connections before attempting to call <a href=../doc_API_C_html/_module_reader_8h.html#a82c6eeba8206562c555eca7c538cea2d>InitReader_Notype</a>. 
+ As for MT_CMD_FAILED_ERR, it only means that the function has failed, it is not a fatal error, 
+ and you can do anything next. But if it appears in the inventory, it is usually due to abnormal communication data. Frequent occurrences 
+ indicate poor communication conditions. As for MT_CMD_NO_TAG_ERR, it generally cannot be referred to as an error, indicating that no tag 
+ was found during the tag operation. 
+ </div>
+  <div class="beftitle">
+  &nbsp;&nbsp;
+  </div>
+  <div class="beftitle">
+  Errors starting with MT_HARDWARE_ALERT_ERR_BY are serious errors that cannot be ignored and may cause hardware damage. 
+  There are some incorrect operations that can cause these errors, including:
+  </div>
+  <ul class="inner_list">
+  <li class="inter_list_item">tag operation on reader antenna port without antenna connection</li>
+  <li class="inter_list_item">Using unqualified antennas</li>
+  <li class="inter_list_item">The ambient temperature is too high</li>
+  <li class="inter_list_item">The antenna is located very close to the metal in front, which can cause excessive return loss</li>
+  </ul>
+  <div class="beftitle">
+  It is best to first turn off the reader and check the working conditions and environment when these errors occur.
+  </div>
+  <div class="beftitle">
+  &nbsp;
+  </div>
+  <div class="beftitle">
+  There is another way to troubleshoot errors, where you can immediately call the <a href=../doc_API_C_html/_module_reader_8h.html#a75ab9406a719922f1dc8fe48a8dda281>GetLastDetailError</a> 
+  function after an error occurs to obtain more detailed error codes and error messages represented by strings.
+  </div>
+  <p>When calling the GetLastDetailError interface, the following rules should be observed:</p>
+  <li>After InitReader_Notype returns a failure, the GetLastDetailErrorinterface should ​​not​​ be called, as the handle hReaderis invalid at this point.</li>
+  <li>If an RFID operation (such as read, write, lock, or parameter configuration) returns a failure (i.e., any value other than MT_OK_ERR), the GetLastDetailError interface ​​may​​ be called.</li>
+  <li>The GetLastDetailError interface ​​can​​ be called within the callback function <a href=../doc_API_C_html/_module_reader_8h.html#ae04aff4475628575dfbcf2b31982cd98>ReadingErrorHandler</a>.</li>
+  <div class="beftitle">
+  &nbsp;
+  </div>
+  <div class="beftitle">
+  The current version of the SDK does not guarantee thread safety for all functions (except for the <a href=../doc_API_C_html/_module_reader_8h.html#a82c6eeba8206562c555eca7c538cea2d>InitReader_Notype</a> 
+  function) when operating on the same reader instance handle. Users must ensure that there are no race conditions in API function calls or guarantee mutual exclusion when calling API functions across 
+  multiple threads. These restrictions do not apply to different reader instance handles.
+  </div>
+  <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <p>The following table lists the error codes returned by the GetLastDetailError function. The codes in the list are returned by the reader. For more details, 
+    please refer to the table descriptions.</p>
+  <style id="mapsty">
+      table1 {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+       
+      .th1, .td1 {
+        border: 1px solid black;
+        padding: 5px;
+        vertical-align: middle; /* 垂直居中 */
+        text-align: center; /* 水平居中 */
+      }
+      </style>
+  <table class="table1">
+      <thead>
+      <tr >
+      <th class="th1">Status Code(HEX)</th>
+      <th class="th1">Status Code(DEC)</th>
+      <th class="th1">Description & Possible Solutions</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr></tr>
+          <td class="td1">0x0000</td>
+          <td class="td1">0</td>
+          <td class="td1">Success</td>
+      </tr>
+      <tr>
+          <td class="td1">0x0100</td>
+          <td class="td1">256</td>
+          <td class="td1">Incorrect Data Length sent. Possible firmware/API version mismatch. Check related versions.</td>
+      </tr>
+      <tr>
+        <td class="td1">0x0101</td>
+        <td class="td1">257</td>
+        <td class="td1">Command unavailable. Confirm reader support for the command. Also check if the reader state changed 
+          (e.g., auto reset from application to boot state, often due to unstable power supply).</td>
+      </tr>
+      <tr>
+          <td class="td1">0x0105</td>
+          <td class="td1">261</td>
+          <td class="td1">Parameter value unavailable. Check the relevant parameter value.</td>
+      </tr>
+      <tr>
+          <td class="td1">0x010A</td>
+          <td class="td1">266</td>
+          <td class="td1">Baud rate unavailable.</td>
+      </tr>
+      <tr>
+        <td class="td1">0x010B</td>
+        <td class="td1">267</td>
+        <td class="td1">Current working frequency band unavailable.</td>
+    </tr>
+    <tr>
+      <td class="td1">0x0200</td>
+      <td class="td1">512</td>
+      <td class="td1">	
+App Firmware layer program CRC incorrect. Try upgrading the reader firmware again.</td>
+  </tr>
+  <tr>
+    <td class="td1">0x0302</td>
+    <td class="td1">770</td>
+    <td class="td1">AFlash undefined error. Flash memory write failed.</td>
+</tr>
+<tr>
+  <td class="td1">0x0400</td>
+  <td class="td1">1024</td>
+  <td class="td1">Tag not found. Common causes include insufficient power or filter mismatch.</td>
+</tr>
+<tr>
+  <td class="td1">0x0402</td>
+  <td class="td1">1026</td>
+  <td class="td1">Protocol unavailable. Check if the reader firmware/API supports the current protocol.</td>
+</tr>
+<tr>
+  <td class="td1">0x0404</td>
+  <td class="td1">1028</td>
+  <td class="td1">Write succeeded but read failed when post-write readback is enabled. Retry the operation.</td>
+</tr>
+<tr>
+  <td class="td1">0x040A</td>
+  <td class="td1">1034</td>
+  <td class="td1">General tag error (read/write lock, kill command). Retry the operation.</td>
+</tr>
+<tr>
+  <td class="td1">0x040B</td>
+  <td class="td1">1035</td>
+  <td class="td1">Read memory area exceeds the allowable length limit (e.g., can only read 96 blocks at once).</td>
+</tr>
+<tr>
+  <td class="td1">0x040C</td>
+  <td class="td1">1036</td>
+  <td class="td1">Kill password unavailable. Often because the kill password is not written. Rewrite the kill password.</td>
+</tr>
+<tr>
+  <td class="td1">0x0420</td>
+  <td class="td1">1056</td>
+  <td class="td1">GEN2 protocol error.</td>
+</tr>
+<tr>
+  <td class="td1">0x0423</td>
+  <td class="td1">1059</td>
+  <td class="td1">Memory bank out-of-bounds. Often caused by an incorrect length parameter exceeding the tag's memory range.</td>
+</tr>
+<tr>
+  <td class="td1">0x0424</td>
+  <td class="td1">1060</td>
+  <td class="td1">The target memory bank is locked. Try setting a password.</td>
+</tr>
+<tr>
+  <td class="td1">0x042B</td>
+  <td class="td1">1067</td>
+  <td class="td1">Insufficient power. Try increasing the transmission power.</td>
+</tr>
+<tr>
+  <td class="td1">0x042F</td>
+  <td class="td1">1071</td>
+  <td class="td1">Non-specific error.</td>
+</tr>
+<tr>
+<td class="td1">0x0430</td>
+<td class="td1">1072</td>
+<td class="td1">Unknown error.</td>
+</tr>
+<tr>
+<td class="td1">0x0500</td>
+<td class="td1">1280</td>
+<td class="td1">Frequency value unavailable.</td>
+</tr>
+<tr>
+<td class="td1">0x0504</td>
+<td class="td1">1284</td>
+<td class="td1">Temperature too high.</td>
+</tr>
+<tr>
+<td class="td1">0x0505</td>
+<td class="td1">1285</td>
+<td class="td1">Echo loss is too large. Common in environments with metal interference; less frequently due to frequency or antenna issues.</td>
+</tr>
+<tr>
+<td class="td1">0x7F00</td>
+<td class="td1">32512</td>
+<td class="td1">System unknown error (critical error). RF hardware circuit startup failed.</td>
+</tr>
+<tr>
+<td class="td1">0x500F</td>
+<td class="td1">20495</td>
+<td class="td1">Yilian temperature tag detected temperature out of range.</td>
+</tr>
+<tr>
+<td class="td1">0x50FF</td>
+<td class="td1">20735</td>
+<td class="td1">Yilian temperature tag detected unstable temperature.</td>
+</tr>
+<tr>
+<td class="td1">0xAA02</td>
+<td class="td1">43522</td>
+<td class="td1">Failed to write OEM register.</td>
+</tr>
+<tr>
+<td class="td1">0xAA03</td>
+<td class="td1">43523</td>
+<td class="td1">Failed to read OEM register.</td>
+</tr>
+<tr>
+<td class="td1">0xAA04</td>
+<td class="td1">43524</td>
+<td class="td1">Command execution failed.</td>
+</tr>
+<tr>
+  <td class="td1">0xAA2A</td>
+  <td class="td1">43562</td>
+  <td class="td1">OEM formatting failed.</td>
+</tr>
+<tr>
+<td class="td1">0xAA31</td>
+<td class="td1">43569</td>
+<td class="td1">Carrier on/off operation failed (antenna not connected). Connect an antenna or spectrum analyzer.</td>
+</tr>
+<tr>
+<td class="td1">0xAA40</td>
+<td class="td1">43584</td>
+<td class="td1">Failed to write OEM register during save configuration command.</td>
+</tr>
+<tr>
+<td class="td1">0xAA4A</td>
+<td class="td1">43594</td>
+<td class="td1">Standing wave detection failed. Potential hardware issue; check hardware.</td>
+</tr>
+<tr>
+<td class="td1">0xAA4B</td>
+<td class="td1">43595</td>
+<td class="td1">Reset or power cycle operation failed.</td>
+</tr>
+<tr>
+<td class="td1">0xAA4C</td>
+<td class="td1">43596</td>
+<td class="td1">No valid multi-tag matching filter data set.</td>
+</tr>
+<tr>
+<td class="td1">0xAA4D</td>
+<td class="td1">43597</td>
+<td class="td1">Failed to set SESSION2/SESSION3 TARGET to A.</td>
+</tr>
+<tr>
+<td class="td1">0xAA55</td>
+<td class="td1">43605</td>
+<td class="td1">User-defined memory bank command read/write/execute failed.</td>
+</tr>
+<tr>
+<td class="td1">0xAA56</td>
+<td class="td1">43606</td>
+<td class="td1">User-defined command configuration or read execution failed.</td>
+</tr>
+<tr>
+<td class="td1">0xEE01</td>
+<td class="td1">60929</td>
+<td class="td1">Chip did not execute to application layer error.</td>
+</tr>
+<tr>
+<td class="td1">0xEE02</td>
+<td class="td1">60930</td>
+<td class="td1">Chip firmware start upgrade failed.</td>
+</tr>
+<tr>
+  <td class="td1">0xEE03</td>
+  <td class="td1">60931</td>
+  <td class="td1">Chip firmware continue upgrade failed.</td>
+</tr>
+<tr>
+<td class="td1">0xEE04</td>
+<td class="td1">60932</td>
+<td class="td1">Chip firmware end upgrade failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF11</td>
+<td class="td1">65297</td>
+<td class="td1">FLASH initialization failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF12</td>
+<td class="td1">65298</td>
+<td class="td1">GPIO initialization failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF13</td>
+<td class="td1">65299</td>
+<td class="td1">Timer initialization failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF14</td>
+<td class="td1">65300</td>
+<td class="td1">SPI initialization failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF15</td>
+<td class="td1">65301</td>
+<td class="td1">Antenna control initialization failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF16</td>
+<td class="td1">65302</td>
+<td class="td1">Frequency band initialization failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF17</td>
+<td class="td1">65303</td>
+<td class="td1">EX10 initialization failed.</td>
+</tr>
+<tr>
+<td class="td1">0xFF1F</td>
+<td class="td1">65311</td>
+<td class="td1">Firmware exception.</td>
+</tr>
+<tr>
+<td class="td1">0xFFFF</td>
+<td class="td1">65535</td>
+<td class="td1">Hardware version error.</td>
+</tr>
+<tr>
+  <td class="td1">non-zero</td>
+  <td class="td1">non-zero</td>
+  <td class="td1">Command execution failed. (General failure for any non-zero code not listed above).</td>
+</tr>
+
+      </tbody>
+      </table>
+      <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Producer <a href="https://www.doxygen.org/index.html"><img class="footer" src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ip_0',['ip',['../struct_reader___ip.html#ab54e7f2c7538fb36959d0be09a326c92',1,'Reader_Ip']]],
+  ['isantennaid_1',['IsAntennaID',['../struct_tag_meta_flags.html#a78a388337686d79656959ca3e5544dcd',1,'TagMetaFlags']]],
+  ['isdefault_2',['isdefault',['../struct_default___param.html#a7b05a0333745ab8f413f8461314c1305',1,'Default_Param']]],
+  ['isemddata_3',['IsEmdData',['../struct_tag_meta_flags.html#a36f2ccc9fedbdf6aa635907c1bf23ba9',1,'TagMetaFlags']]],
+  ['isfastread_4',['IsFastRead',['../struct_back_read_option.html#a6f435b80b9e68dddcf4a76cbf14a4404',1,'BackReadOption']]],
+  ['isfrequency_5',['IsFrequency',['../struct_tag_meta_flags.html#aa6e6d34d0093d0a0d39ad098b15c3ed0',1,'TagMetaFlags']]],
+  ['isget_6',['isGet',['../struct_m_o_d_u_s_i_n_f_o.html#ab6360083b92a237d8c8a9bae0d30e643',1,'MODUSINFO']]],
+  ['isgpitrigger_7',['IsGPITrigger',['../struct_back_read_option.html#a799cf133936d5b9ba131e006772cb158',1,'BackReadOption']]],
+  ['isinvert_8',['isInvert',['../struct_tag_filter___s_t.html#aec41a06dbbca56f7653efbf3197e2476',1,'TagFilter_ST']]],
+  ['isprotocol_9',['IsProtocol',['../struct_tag_meta_flags.html#a0699ba6dc2d3fa792b413229f0beecb7',1,'TagMetaFlags']]],
+  ['isreadcnt_10',['IsReadCnt',['../struct_tag_meta_flags.html#ac9b57e785f51db37192bd2aa328e880a',1,'TagMetaFlags']]],
+  ['isreantct_11',['isReAntCT',['../struct_m_o_d_u_s_p_a_r_m_s.html#a2555cce3acb7a300c3a2d579a80aba18',1,'MODUSPARMS']]],
+  ['isreanthl_12',['isReAntHL',['../struct_m_o_d_u_s_p_a_r_m_s.html#a1cfcbae1473788ac278205d61c3128d3',1,'MODUSPARMS']]],
+  ['isretemp_13',['isReTemp',['../struct_m_o_d_u_s_p_a_r_m_s.html#a68174fd3f399b3113da6847b919b5113',1,'MODUSPARMS']]],
+  ['isrfu_14',['IsRFU',['../struct_tag_meta_flags.html#ab85951d75d898ccf562b00de23374bea',1,'TagMetaFlags']]],
+  ['isrssi_15',['IsRSSI',['../struct_tag_meta_flags.html#adc8cf61c867c03a9430be534fcce78d7',1,'TagMetaFlags']]],
+  ['isset_16',['isSet',['../struct_n_x_p_change_e_a_s_para.html#a3333a658a9f064771f16de77aae988ff',1,'NXPChangeEASPara']]],
+  ['istimestamp_17',['IsTimestamp',['../struct_tag_meta_flags.html#a005a64ba8aff230e34035a95eaa8eeaf',1,'TagMetaFlags']]]
+];

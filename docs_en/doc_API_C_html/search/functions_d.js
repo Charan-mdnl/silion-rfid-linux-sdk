@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['savedataonreader_0',['SaveDataOnReader',['../_module_reader_8h.html#a77c56c17a7e41ce0f256c01b4ca88c88',1,'ModuleReader.h']]],
+  ['setantspower_1',['SetAntsPower',['../_module_reader_8h.html#ad33e03bb36336ed5774ec81a9b25e014',1,'ModuleReader.h']]],
+  ['setembededdata_2',['SetEmbededData',['../_module_reader_8h.html#aac197f2fa9181837e7db515de1dbb398',1,'ModuleReader.h']]],
+  ['setepclength_3',['SetEPCLength',['../_module_reader_8h.html#a0fa35e0d118b178eed38f2ba2c21f287',1,'ModuleReader.h']]],
+  ['setfilter_4',['SetFilter',['../_module_reader_8h.html#a3863684965af04e8d7878b35b31a4c39',1,'ModuleReader.h']]],
+  ['setgen2mval_5',['SetGen2MVal',['../_module_reader_8h.html#a355110cbb4bf2afa25e1a3fefbb30b33',1,'ModuleReader.h']]],
+  ['setgen2session_6',['SetGen2Session',['../_module_reader_8h.html#afdc523f3ab39bc61de965066ab541a36',1,'ModuleReader.h']]],
+  ['setgpitriggerhandler_7',['SetGpiTriggerHandler',['../_module_reader_8h.html#a05880db8d2358bdb3a70d4b215d68c48',1,'ModuleReader.h']]],
+  ['setgpo_8',['SetGPO',['../_module_reader_8h.html#aeb094594138830ee399c33f777d814ea',1,'ModuleReader.h']]],
+  ['setinvidlehandler_9',['SetInvIdleHandler',['../_module_reader_8h.html#a6cd65c084a695d18d7c6083e1fea1a9f',1,'ModuleReader.h']]],
+  ['setinvpotl_10',['SetInvPotl',['../_module_reader_8h.html#a24c3127ba4733880bcc35e380f08973b',1,'ModuleReader.h']]],
+  ['setipinfo_11',['SetIpInfo',['../_module_reader_8h.html#a2eec025d4b1785f8a6cda01cc3d98024',1,'ModuleReader.h']]],
+  ['setreadingerrorhandler_12',['SetReadingErrorHandler',['../_module_reader_8h.html#a05b74af48d12c6c5402a017cf60eb885',1,'ModuleReader.h']]],
+  ['setreadinginfohandler_13',['SetReadingInfoHandler',['../_module_reader_8h.html#acbf2a38dd5358f88276d1f89bec46cce',1,'ModuleReader.h']]],
+  ['setreadpower_14',['SetReadPower',['../_module_reader_8h.html#ae0c7d16679bc25d2ec0d3657faccae1f',1,'ModuleReader.h']]],
+  ['setregion_15',['SetRegion',['../_module_reader_8h.html#ad62a411e01aad639849790462c46f797',1,'ModuleReader.h']]],
+  ['settagreadhandler_16',['SetTagReadHandler',['../_module_reader_8h.html#a04fa6072119867f5916feb1e7d07085d',1,'ModuleReader.h']]],
+  ['setwritepower_17',['SetWritePower',['../_module_reader_8h.html#a150d22b156645d73ce066dda25c86da2',1,'ModuleReader.h']]],
+  ['specialsensortagop_18',['SpecialSensorTagOp',['../_module_reader_8h.html#a8677dc3fe34485c4239a08c7182027dc',1,'ModuleReader.h']]],
+  ['specialstructdataconvert_19',['SpecialStructDataConvert',['../_module_reader_8h.html#af25000a85b333652236a13a89a7ff7f7',1,'ModuleReader.h']]],
+  ['startreading_20',['StartReading',['../_module_reader_8h.html#a7930e3961c60ba5f37d05292972efc68',1,'ModuleReader.h']]],
+  ['stopreading_21',['StopReading',['../_module_reader_8h.html#adb9c72beab088d02df6f0032f673a4ec',1,'ModuleReader.h']]],
+  ['str2binary_22',['Str2Binary',['../_module_reader_8h.html#ad13a4633e5a843970377a68765ff83dc',1,'ModuleReader.h']]],
+  ['str2hex_23',['Str2Hex',['../_module_reader_8h.html#a684f5db5995e0b5905add144a2dda764',1,'ModuleReader.h']]]
+];

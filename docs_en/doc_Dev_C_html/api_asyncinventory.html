@@ -1,0 +1,966 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ModuleAPI_C_doc Asynchronous inventory</title>
+<link href="../doc_API_C_html/tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/jquery.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/dynsections.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/clipboard.js"></script>
+<link href="../doc_API_C_html/navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/navtreedata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/navtree.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/resize.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/cookie.js"></script>
+<link href="../doc_API_C_html/search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../doc_API_C_html/search/searchdata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/search/search.js"></script>
+<link href="../doc_API_C_html/doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ModuleAPI_C_doc
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Producer Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../doc_API_C_html/search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../doc_API_C_html/menudata.js"></script>
+<script type="text/javascript" src="../doc_API_C_html/menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../doc_API_C_html/',true,false,'search.php','搜索',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('api_asyncinventory.html','../doc_API_C_html/'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">NoMatches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="contents">
+<div class="header">
+  <div class="headertitle"><div class="title">Asynchronous inventory</div></div>
+</div><!--header-->  
+
+<p>The API implements asynchronous inventory and uses the <a href=../doc_API_C_html/_module_reader_8h.html#a7930e3961c60ba5f37d05292972efc68>StartReading</a> interface 
+  function to start asynchronous inventory.Asynchronous inventory implements two types of inventory interface calls internally, switching between normal inventory 
+  and fast mode inventory methods through the IsFastRead property in the parameter <a href=../doc_API_C_html/struct_back_read_option.html>BackReadOption</a>.  
+  The normal inventory mode is a type of asynchronous inventory mode that involves creating a new thread internally to call the synchronous inventory 
+  <a href=../doc_API_C_html/_module_reader_8h.html#ad281348a022bea69989180f15dafd065>TagInventory_Raw</a> function.This asynchronous inventory is called the normal asynchronous inventory mode.
+   Another type is true asynchronous inventory, which calls the <a class="el" href="../doc_API_C_html/_module_reader_8h.html#ae544bc7cb0c9d395165a73d73148c2ad" target="_parent">AsyncStartReading
+  </a> function in fast mode inventory internally, and the reader 
+   will remain in a continuous inventory state.This method has the best inventory performance for reader.
+   This method has the best inventory performance for readers.
+  For applications with high inventory performance requirements, this asynchronous inventory mode should be used, which is called the fast asynchronous inventory mode. 
+   Stop asynchronous inventory using the <a href=../doc_API_C_html/_module_reader_8h.html#adb9c72beab088d02df6f0032f673a4ec>StopReading</a> interface function.</p>
+  <p>Note: Not all device types support fast asynchronous inventory mode. R2000, E-series, SFM series and other chip based readers support this inventory mode.</p>
+ 
+<p>The asynchronous inventory returns tag data and exceptions through callback. Before calling StartReading, call the interface function
+   <a href=../doc_API_C_html/_module_reader_8h.html#a04fa6072119867f5916feb1e7d07085d>SetTagReadHandler</a> to set the tag callback;
+   If tags are inventoried during asynchronous inventory, the <a href=../doc_API_C_html/_module_reader_8h.html#a36a440bacddf2c14045c06394a0b14fd>TagReadHandler</a>
+    will be called back to pass the inventoried tag data to the user program; 
+   Call the interface function <a href=../doc_API_C_html/_module_reader_8h.html#a05b74af48d12c6c5402a017cf60eb885>SetReadingErrorHandler</a> to set an exception
+    callback before calling StartReading;If the reader encounters an abnormal situation, it will call 
+    <a href="../doc_API_C_html/_module_reader_8h.html#ae04aff4475628575dfbcf2b31982cd98">ReadingErrorHandler</a> to pass the detailed information of the 
+    exception to the user program;Call the interface function <a href=../doc_API_C_html/_module_reader_8h.html#a05880db8d2358bdb3a70d4b215d68c48>SetGpiTriggerHandler</a> 
+    before calling StartReading to set the GPI trigger callback; If asynchronous 
+    inventory is configured to start or stop triggered by GPI, then <a href="../doc_API_C_html/_module_reader_8h.html#a7616463be2070c360adb1ff5d9413921">GpiStateHandler</a> 
+    and <a href="../doc_API_C_html/_module_reader_8h.html#abff8f67553ffc809b208c270f83cdf2e">GpiTriggerBoundaryHandler</a> will be called back when GPI conditions are met. 
+    Enable GPI triggering through the IsGPITrigger property of BackReadOption.</p>
+    
+
+  <div id="codeexmple_easy"></div>
+    <link href="./css/prettify.css" rel="stylesheet" />
+    <script src="./js/prettify.min.js"></script>
+
+    <script>
+      window.onload = function () {
+        prettyPrint();
+      };
+    </script>
+  <H4 id="sample7">CLanguage Code Example 7- Asynchronous Inventory fast Inventory</H4>
+  <pre class="prettyprint lang-c"><code>
+    /**
+    *   异步快速方式盘点/ Asynchronous fast mode inventory
+    */
+    #include < stdio.h>
+    #include < stdlib.h>
+    #include < string.h>
+    
+    #if defined (__linux__)
+    #include < sys/time.h>
+    #include < unistd.h>
+    #define MUL 1000
+    #define MSLEEP(x) usleep(x*MUL)
+    #else
+    #include < windows.h>
+    #define MSLEEP(x) Sleep(x)
+    #endif
+    
+    #include "ModuleReader.h"
+    
+    time_t startt,endtt;
+    int tagcount=0;
+    const int testseconds=3;//测试时间/test time 10s
+    int isbreak=0;
+
+    void PrintErrorDetail(int hreader)
+    {
+      int internalcode;
+      char *errdes;
+      char rdrip[50];
+      READER_ERR eh_err;
+      eh_err =GetReaderAddress(hreader, rdrip);
+      eh_err =GetLastDetailError(hreader, &internalcode, &errdes);
+      printf("reader %s error:%d, info:%s\n", rdrip, internalcode, errdes);
+    }
+    
+    void OnTagRead(int hreader, TAGINFO *tag, void* cookie)
+    {
+      READER_ERR err=MT_OK_ERR;
+      TagFilter_ST filter;      
+      HardwareDetails phd;
+      int c;
+      char out[124];
+      Hex2Str(tag->EpcId, tag->Epclen, out);
+    
+      printf("epdid:%s readcount:%d rssi:%d antID:%d frequency:%d\ntimestamp:%d protocol:%d", out,tag->ReadCnt,
+      tag->RSSI-256,tag->AntennaID,tag->Frequency,tag->TimeStamp,tag->protocol);
+    
+      GetHardwareDetails(hreader,&phd);
+    
+      if(phd.module==MODOULE_SIM7100||
+        phd.module==MODOULE_SIM7200||
+        phd.module==MODOULE_SIM7300||
+        phd.module==MODOULE_SIM7400||
+        phd.module==MODOULE_SIM7500||
+        phd.module==MODOULE_SIM7600||
+        phd.module==MODOULE_SIM3100||
+        phd.module==MODOULE_SIM3200||
+        phd.module==MODOULE_SIM3300||
+        phd.module==MODOULE_SIM3400||
+        phd.module==MODOULE_SIM3500||
+        phd.module==MODOULE_SIM3600||
+        phd.module==MODOULE_SIM5100||
+        phd.module==MODOULE_SIM5200||
+        phd.module==MODOULE_SIM5300||
+        phd.module==MODOULE_SIM5400||
+        phd.module==MODOULE_SIM5500||
+        phd.module==MODOULE_SIM5600||
+        phd.module==MODOULE_SIM3110)
+      {
+        float endphase=((tag->Res[0]<< 8|tag->Res[1])&0xFFF)*360.0/4096;
+        float startphase=((tag->CRC[0]<< 8|tag->CRC[1])&0xFFF)*360.0/4096;
+        printf(" startphase:%.2f endphase:%.2f",startphase,endphase); 
+      }
+      else
+      {
+        float  phase=tag->Res[1] & 0x3f;
+        printf(" phase:%f ",phase); 
+      }
+    
+      if(tag->EmbededDatalen>0)
+      {
+        char out2[124];
+        Hex2Str(tag->EmbededData, tag->EmbededDatalen, out2);
+        printf(" emddata:%s\r\n", out2);
+      }
+      else
+      {  
+        printf(" emddata:\r\n");
+      }
+    }
+    
+    void OnReadingError(int hReader, READER_ERR errcode, void* cookie)
+    {
+      printf("re error:%d\n", errcode);
+	    PrintErrorDetail(hReader);
+
+	    /////
+	    //可在此处重新打开读写器并继续盘存标签，可尝试多次，如果多次打开读写器不成功可放弃。
+	    //You can reopen the reader here and continue to inventory the tags. You can try multiple times, 
+	    //but if you fail always, you can give up.
+	    //////
+    }
+    
+    int main()  
+    {
+      int hreader;
+      char* address="192.168.1.160";
+      int antportnum=1;
+      READER_ERR err;
+      int ants[] = {1};
+      int *pants=&ants[0];
+      int antlen=sizeof(ants)/sizeof(ants[0]);
+      int i;
+      unsigned short Maxp;
+      CustomParam_ST cpara;
+      AntPowerConf antpwrconf;
+      int c;
+      ConnAnts_ST conants;
+    
+      unsigned char  paraBuf[50+22]="Reader/Ex10fastmode";
+
+      OnReadingErrorBlock reblk;
+      OnTagReadBlock trblk;
+      BackReadOption BROption;
+    
+      printf("fastmode AsynRead example .\n");
+      err=InitReader_Notype(&hreader, address, antportnum);
+      if (err != MT_OK_ERR)
+      {
+        printf("init reader err :%d\n", err);
+        scanf("%c",&c);
+        return -1;
+      }
+    
+      if ((err=ParamGet(hreader, MTR_PARAM_RF_MAXPOWER, &Maxp)) != MT_OK_ERR)
+      {
+        printf("ParamGet err :%d input any key to exit!\n", err);
+        scanf("%c",&c);
+        return ;
+      }
+    
+      antpwrconf.antcnt = antportnum;
+      for(i=0;i< antportnum;i++)
+      { antpwrconf.Powers[i].antid = i+1;
+      antpwrconf.Powers[i].readPower = Maxp;
+      antpwrconf.Powers[i].writePower = Maxp;}
+
+      if (ParamSet(hreader, MTR_PARAM_RF_ANTPOWER, &antpwrconf) != MT_OK_ERR)
+      {
+        printf("ParamSet MTR_PARAM_RF_ANTPOWER err\n");
+        scanf("%c",&c);
+        return -1;
+      }
+     
+      //获取已连接天线/get connected antennnas
+      if (ParamGet(hreader, MTR_PARAM_READER_CONN_ANTS, &conants) == MT_OK_ERR)
+      {
+        if(conants.antcnt>0)
+        { 
+          printf("get connected antennas \n");
+          pants=&conants.connectedants[0];
+          antlen=conants.antcnt;
+        }
+      }
+    
+      reblk.handler = OnReadingError;
+      reblk.cookie = NULL;
+      SetReadingErrorHandler(hreader, reblk);
+    
+      trblk.handler = OnTagRead;
+      trblk.cookie = NULL;
+      SetTagReadHandler(hreader, trblk);
+    
+      memset(&BROption, 0, sizeof(BackReadOption));
+      BROption.IsFastRead = 1; //0 普通模式 1 快速模式 /0 general mode 1 fast 
+    
+      paraBuf[50]=0;// 1 enable ex10fastmode，0 genral fast mode
+      paraBuf[51]=20;
+      for(i=52;i< paraBuf[51];i++)
+        paraBuf[i]=0;
+      cpara.pCusParam =paraBuf;
+      cpara.CParamlen=22;
+      err = ParamSet(hreader,MTR_PARAM_CUSTOM, &cpara);
+    
+      BROption.TMFlags.IsAntennaID=1;
+      BROption.TMFlags.IsRSSI=1;
+    
+      err = StartReading(hreader, pants, antlen, &BROption);
+      if (err == MT_OK_ERR)
+      {	printf("StartReading successfully\n");
+    
+      startt=time((time_t*)NULL);
+      endtt=startt;}
+      else
+      {
+        printf("StartReading failed err:%d\n", err);
+        scanf("%c",&c);
+        return -1;
+      }
+     
+      while (1)
+      {
+        endtt=time((time_t*)NULL);
+        if((endtt-startt)>=testseconds||isbreak)
+        {
+          StopReading(hreader);
+          break;
+        }
+        MSLEEP(1000);
+      }
+    
+      CloseReader(hreader);
+      printf("close the reader.input any key to exit!\n");
+      scanf("%c",&c);
+      return 0;
+    }
+
+  </code></pre>
+  <H4>C Language Code Example 7- Asynchronous Inventory Fast Inventory Output Results</H4>
+  <style>
+    .responsive-image {
+      object-fit: contain;
+      width: 50%;
+      /* 或者使用具体的像素值，如：width: 200px; */
+      height: auto;
+      /* 高度自动调整以保持图片原始宽高比 */
+    }
+  </style>
+  <img src="images/test_fastmodeAsynRead_print.png" alt="Output Results" class="responsive-image" />
+
+  <H4 id="sample8">C Language Code Example 8- Asynchronous Inventory with Additional Data Filtering and Writing Tags</H4>
+  <pre class="prettyprint lang-c"><code>
+    /**
+    *   异步附加数据tid普通方式盘点，过滤写epc/ Asynchronous inventory with additional data,and write to epc with fliter
+    */
+    #include < stdio.h>
+    #include < stdlib.h>
+    #include < string.h>
+    
+    #if defined (__linux__)
+    #include < sys/time.h>
+    #include < unistd.h>
+    #define MUL 1000
+    #define MSLEEP(x) usleep(x*MUL)
+    #else
+    #include < windows.h>
+    #define MSLEEP(x) Sleep(x)
+    #endif
+    
+    #include "ModuleReader.h"
+    
+    time_t startt,endtt;
+    int tagcount=0;
+    unsigned char wdata[12]={0xBA,0xCD,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01};
+    const int testseconds=10;//测试时间/test time 10s
+    int isbreak=0;
+    int isInitEpcid=1;//1 initEpc  0 only mendfy block data in bank
+    
+    void PrintErrorDetail(int hreader)
+    {
+      int internalcode;
+      char *errdes;
+      char rdrip[50];
+      READER_ERR eh_err;
+      eh_err =GetReaderAddress(hreader, rdrip);
+      eh_err =GetLastDetailError(hreader, &internalcode, &errdes);
+      printf("reader %s error:%d, info:%s\n", rdrip, internalcode, errdes);
+    
+    }
+    
+    void OnTagRead(int hreader, TAGINFO *tag, void* cookie)
+    {
+      READER_ERR err=MT_OK_ERR;
+      TagFilter_ST filter;      
+      HardwareDetails phd;
+      int c;
+      char out[124];
+      Hex2Str(tag->EpcId, tag->Epclen, out);
+    
+      printf("epdid:%s readcount:%d rssi:%d antID:%d frequency:%d\ntimestamp:%d protocol:%d", out,tag->ReadCnt,
+      tag->RSSI-256,tag->AntennaID,tag->Frequency,tag->TimeStamp,tag->protocol);
+    
+      GetHardwareDetails(hreader,&phd);
+    
+      if(phd.module==MODOULE_SIM7100||
+        phd.module==MODOULE_SIM7200||
+        phd.module==MODOULE_SIM7300||
+        phd.module==MODOULE_SIM7400||
+        phd.module==MODOULE_SIM7500||
+        phd.module==MODOULE_SIM7600||
+        phd.module==MODOULE_SIM3100||
+        phd.module==MODOULE_SIM3200||
+        phd.module==MODOULE_SIM3300||
+        phd.module==MODOULE_SIM3400||
+        phd.module==MODOULE_SIM3500||
+        phd.module==MODOULE_SIM3600||
+        phd.module==MODOULE_SIM5100||
+        phd.module==MODOULE_SIM5200||
+        phd.module==MODOULE_SIM5300||
+        phd.module==MODOULE_SIM5400||
+        phd.module==MODOULE_SIM5500||
+        phd.module==MODOULE_SIM5600||
+        phd.module==MODOULE_SIM3110)
+      {
+        float endphase=((tag->Res[0]<< 8|tag->Res[1])&0xFFF)*360.0/4096;
+        float startphase=((tag->CRC[0]<< 8|tag->CRC[1])&0xFFF)*360.0/4096;
+        printf(" startphase:%.2f endphase:%.2f",startphase,endphase); 
+      }
+      else
+      {
+        float  phase=tag->Res[1] & 0x3f;
+        printf(" phase:%f ",phase); 
+      }
+    
+      if(tag->EmbededDatalen>0)
+      {
+    
+        char out2[124];
+        Hex2Str(tag->EmbededData, tag->EmbededDatalen, out2);
+        printf(" emddata:%s\r\n", out2);
+
+        filter.bank = 2;                                                        
+        filter.fdata = tag->EmbededData;                                              
+        filter.flen = tag->EmbededDatalen*8;                                            
+        filter.startaddr =0;                                                    
+        filter.isInvert = 0;                                                    
+        //设置写标签操作时的过滤条件（以标签的TID码为过滤条件）/set the filter by tid                     
+        ParamSet(hreader, MTR_PARAM_TAG_FILTER, &filter);       
+      }
+      else
+      {  
+        printf(" emddata:\r\n");
+    
+        filter.bank = 1;                                                        
+        filter.fdata = tag->EpcId;                                              
+        filter.flen = tag->Epclen*8;                                            
+        filter.startaddr =32;                                                    
+        filter.isInvert = 0;                                                    
+        //设置写标签操作时的过滤条件（以标签的EPC码为过滤条件） /set the filter by epcid                    
+        ParamSet(hreader, MTR_PARAM_TAG_FILTER, &filter);      
+    
+      }
+    
+      memset(out,0,124);
+      Hex2Str(wdata, sizeof(wdata)/sizeof(wdata[0]), out);
+    
+      if(isInitEpcid)
+        err=WriteTagEpcEx(hreader,tag->AntennaID, wdata,sizeof(wdata)/sizeof(wdata[0]), NULL, 1000);
+      else
+        err = WriteTagData(hreader, tag->AntennaID, 1, 2, wdata,sizeof(wdata)/sizeof(wdata[0]), NULL, 1000);
+
+      //清除过滤条件/clear the fliter 
+      ParamSet(hreader, MTR_PARAM_TAG_FILTER, NULL); 
+
+      if (err != MT_OK_ERR)
+      {
+        printf("Write Tag %s failed!\r\n",out);
+        return;
+      }
+    
+      printf("Write Tag  %s ok!\r\n",out);
+      wdata[sizeof(wdata)/sizeof(wdata[0])-1]++;
+    }
+    
+    void OnReadingError(int hReader, READER_ERR errcode, void* cookie)
+    {
+      printf("re error:%d\n", errcode);
+      PrintErrorDetail(hReader);
+      /////
+      //可在此处重新打开读写器并继续盘存标签，可尝试多次，如果多次打开读写器不成功可放弃。
+      //You can reopen the reader here and continue to inventory the tags. You can try multiple times, 
+      //but if you fail always, you can give up.
+      //////
+    }
+    
+    int main()  
+    {
+      int hreader;
+      char* address="192.168.1.160";
+      int antportnum=1;
+      READER_ERR err;
+      int ants[] = {1};
+      int *pants=&ants[0];
+      int antlen=sizeof(ants)/sizeof(ants[0]);
+      int i;
+      unsigned short Maxp;
+      CustomParam_ST cpara;
+      AntPowerConf antpwrconf;
+      int c;
+      ConnAnts_ST conants;
+    
+      EmbededData_ST tiddata;
+      unsigned char  paraBuf[50+22]="Reader/Ex10fastmode";
+      HardwareDetails phd;
+    
+      OnReadingErrorBlock reblk;
+      OnTagReadBlock trblk;
+      BackReadOption BROption;
+    
+      printf("AsynRead and write tag with fliter  example .\n");
+      err=InitReader_Notype(&hreader, address, antportnum);
+      if (err != MT_OK_ERR)
+      {
+        printf("init reader err :%d\n", err);
+        scanf("%c",&c);
+        return -1;
+      }
+    
+      if ((err=ParamGet(hreader, MTR_PARAM_RF_MAXPOWER, &Maxp)) != MT_OK_ERR)
+      {
+        printf("ParamGet err :%d input any key to exit!\n", err);
+        scanf("%c",&c);
+        return ;
+      }
+    
+      antpwrconf.antcnt = antportnum;
+      for(i=0;i< antportnum;i++)
+      { antpwrconf.Powers[i].antid = i+1;
+      antpwrconf.Powers[i].readPower = Maxp;
+      antpwrconf.Powers[i].writePower = Maxp;}
+
+      if (ParamSet(hreader, MTR_PARAM_RF_ANTPOWER, &antpwrconf) != MT_OK_ERR)
+      {
+        printf("ParamSet MTR_PARAM_RF_ANTPOWER err\n");
+        scanf("%c",&c);
+        return -1;
+      }
+    
+      //清除过滤条件/clear the fliter 
+      ParamSet(hreader, MTR_PARAM_TAG_FILTER, NULL); 
+
+      //获取已连接天线/get connected antennnas
+      if (ParamGet(hreader, MTR_PARAM_READER_CONN_ANTS, &conants) == MT_OK_ERR)
+      {
+        if(conants.antcnt>0)
+        { 
+          printf("get connected antennas \n");
+          pants=&conants.connectedants[0];
+          antlen=conants.antcnt;
+        }
+      }
+    
+      reblk.handler = OnReadingError;
+      reblk.cookie = NULL;
+      SetReadingErrorHandler(hreader, reblk);
+    
+      trblk.handler = OnTagRead;
+      trblk.cookie = NULL;
+      SetTagReadHandler(hreader, trblk);
+
+      memset(&BROption, 0, sizeof(BackReadOption));
+      BROption.IsFastRead = 0; //0 普通模式 1 快速模式 /0 general mode 1 fast mode
+      BROption.ReadDuration = 250*antlen;
+      BROption.ReadInterval = 0;
+      BROption.TMFlags.IsEmdData = 1;
+    
+      //清除附加数据/clear embededdata
+	    ParamSet(hreader, MTR_PARAM_TAG_EMBEDEDDATA, NULL);
+      
+      //附加数据读tid区96bits/addtional data with tid bank(96bits)
+      tiddata.bank = 2;
+      tiddata.startaddr = 0;
+      tiddata.bytecnt = 12;
+      tiddata.accesspwd = NULL;
+      ParamSet(hreader, MTR_PARAM_TAG_EMBEDEDDATA, &tiddata);
+
+      err = StartReading(hreader, pants, antlen, &BROption);
+      if (err == MT_OK_ERR)
+      {	printf("StartReading successfully\n");
+        startt=time((time_t*)NULL);
+        endtt=startt;}
+      else
+      {
+        printf("StartReading failed err:%d\n", err);
+        scanf("%c",&c);
+        return -1;
+      }
+      while (1)
+      {
+        endtt=time((time_t*)NULL);
+        if((endtt-startt)>=testseconds||isbreak)
+        {
+          StopReading(hreader);
+          break;
+        } 
+        MSLEEP(1000);
+      }
+      CloseReader(hreader);
+      printf("close the reader.input any key to exit!\n");
+      scanf("%c",&c);
+      return 0;
+    }
+
+  </code></pre>
+  <H4>C Language Code Example 8- Asynchronous Inventory with Additional Data Filtering, Writing Tags, Output Results</H4>
+  
+  <img src="images/test_aysninventoryadd_fliterwirteepc_print.png" alt="Output Results" class="responsive-image" />
+
+  <p>The current reader supports simultaneous reading of multiple bank data and multiple filtering conditions when inventorying GEN2 protocol tags.</p>
+  <H4 id="sample9">C Language Code Example 9- Asynchronous Inventory with Multiple Additional Data and Multiple Filtering Conditions</H4>
+  <pre class="prettyprint lang-c"><code>
+    /**
+    *   异步多附加数据多过滤条件快速方式盘点/ Asynchronous fast mode inventory with multiple additional data and multiple filters
+    */
+    #include < stdio.h>
+    #include < stdlib.h>
+    #include < string.h>
+    
+    #if defined (__linux__)
+    #include < sys/time.h>
+    #include < unistd.h>
+    #define MUL 1000
+    #define MSLEEP(x) usleep(x*MUL)
+    #else
+    #include < windows.h>
+    #define MSLEEP(x) Sleep(x)
+    #endif
+    
+    #include "ModuleReader.h"
+    
+    time_t startt,endtt;
+    int tagcount=0;
+    const int testseconds=10;//测试时间/test time 10s
+    int isbreak=0;
+
+    typedef struct
+    {
+      unsigned char bank;
+      int startaddr;
+      unsigned char blockcnt;
+    } InvEmbeddedBankData;
+    
+    READER_ERR SetInvMultiEmbeddedData(int hReader, InvEmbeddedBankData *BankDatas, 
+              unsigned char BankDatasCnt, unsigned char *accesspwd)
+    {
+      CustomParam_ST cparam;
+      unsigned char pval[120];
+      int pos = 50;
+      int i;
+    
+      cparam.pCusParam = pval;
+      strcpy((char*)pval, "gen2op/multiembeddeddata");
+    
+      if (BankDatasCnt > 10)
+        return MT_INVALID_PARA;
+      pval[pos++] = BankDatasCnt;
+      if (BankDatasCnt > 0)
+      {
+        memcpy(pval+pos, accesspwd, 4);
+        pos += 4;
+        for (i = 0; i < BankDatasCnt; ++i)
+        {
+          pval[pos++] = BankDatas[i].bank;
+          pval[pos++] = (BankDatas[i].startaddr >> 24) & 0xff;
+          pval[pos++] = (BankDatas[i].startaddr >> 16) & 0xff;
+          pval[pos++] = (BankDatas[i].startaddr >> 8) & 0xff;
+          pval[pos++] = (BankDatas[i].startaddr >> 0) & 0xff;
+          pval[pos++] = BankDatas[i].blockcnt;
+        }
+      }
+      cparam.CParamlen = 120;
+      return ParamSet(hReader, MTR_PARAM_CUSTOM, &cparam);
+    }
+    
+    void PrintErrorDetail(int hreader)
+    {
+      int internalcode;
+      char *errdes;
+      char rdrip[50];
+      READER_ERR eh_err;
+      eh_err =GetReaderAddress(hreader, rdrip);
+      eh_err =GetLastDetailError(hreader, &internalcode, &errdes);
+      printf("reader %s error:%d, info:%s\n", rdrip, internalcode, errdes);
+    }
+    
+    void OnTagRead(int hreader, TAGINFO *tag, void* cookie)
+    {
+      READER_ERR err=MT_OK_ERR;
+      TagFilter_ST filter;      
+      HardwareDetails phd;
+      int c;
+      char out[124];
+      Hex2Str(tag->EpcId, tag->Epclen, out);
+    
+      printf("epdid:%s readcount:%d rssi:%d antID:%d frequency:%d\ntimestamp:%d protocol:%d", out,tag->ReadCnt,
+      tag->RSSI-256,tag->AntennaID,tag->Frequency,tag->TimeStamp,tag->protocol);
+    
+      GetHardwareDetails(hreader,&phd);
+    
+      if(phd.module==MODOULE_SIM7100||
+        phd.module==MODOULE_SIM7200||
+        phd.module==MODOULE_SIM7300||
+        phd.module==MODOULE_SIM7400||
+        phd.module==MODOULE_SIM7500||
+        phd.module==MODOULE_SIM7600||
+        phd.module==MODOULE_SIM3100||
+        phd.module==MODOULE_SIM3200||
+        phd.module==MODOULE_SIM3300||
+        phd.module==MODOULE_SIM3400||
+        phd.module==MODOULE_SIM3500||
+        phd.module==MODOULE_SIM3600||
+        phd.module==MODOULE_SIM5100||
+        phd.module==MODOULE_SIM5200||
+        phd.module==MODOULE_SIM5300||
+        phd.module==MODOULE_SIM5400||
+        phd.module==MODOULE_SIM5500||
+        phd.module==MODOULE_SIM5600||
+        phd.module==MODOULE_SIM3110)
+      {
+        float endphase=((tag->Res[0]<< 8|tag->Res[1])&0xFFF)*360.0/4096;
+        float startphase=((tag->CRC[0]<< 8|tag->CRC[1])&0xFFF)*360.0/4096;
+        printf(" startphase:%.2f endphase:%.2f",startphase,endphase); 
+      }
+      else
+      {
+        float  phase=tag->Res[1] & 0x3f;
+        printf(" phase:%f ",phase); 
+      }
+    
+      if(tag->EmbededDatalen>0)
+      {
+        char out2[124];
+        Hex2Str(tag->EmbededData, tag->EmbededDatalen, out2);
+        printf(" emddata:%s\r\n", out2);
+      }
+      else
+      {  
+        printf(" emddata:\r\n");
+      }
+    }
+    
+    void OnReadingError(int hReader, READER_ERR errcode, void* cookie)
+    {
+      printf("re error:%d\n", errcode);
+      PrintErrorDetail(hReader);
+    
+      /////
+      //可在此处重新打开读写器并继续盘存标签，可尝试多次，如果多次打开读写器不成功可放弃。
+      //You can reopen the reader here and continue to inventory the tags. You can try multiple times, 
+      //but if you fail always, you can give up.
+      //////
+      isbreak=1;
+    }
+    
+    int main()  
+    {
+      int hreader;
+      char* address="192.168.1.160";
+      int antportnum=1;
+      READER_ERR err;
+      int ants[] = {1};
+      int *pants=&ants[0];
+      int antlen=sizeof(ants)/sizeof(ants[0]);
+      int i;
+      unsigned short Maxp;
+      CustomParam_ST cpara;
+      AntPowerConf antpwrconf;
+      int c;
+      ConnAnts_ST conants;
+    
+      EmbededData_ST tiddata;
+      unsigned char  paraBuf[50+22]="Reader/Ex10fastmode";
+      HardwareDetails phd;
+    
+      OnReadingErrorBlock reblk;
+      OnTagReadBlock trblk;
+      BackReadOption BROption;
+    
+      unsigned char matchdata1[12]={0xBA,0xCD,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01};
+      unsigned char matchdata2[12]={0xBA,0xCD,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02};
+      unsigned char matchdata3[12]={0xBA,0xCD,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x03};
+      MultiTagSelectors_ST mtst;
+    
+      InvEmbeddedBankData BankDatas[3];
+      unsigned char accesspwd[4] = {0};
+      int p=0;
+    
+      printf("AsynRead with multiple fliters and addtional data  example .\n");
+      err=InitReader_Notype(&hreader, address, antportnum);
+      if (err != MT_OK_ERR)
+      {
+        printf("init reader err :%d\n", err);
+        scanf("%c",&c);
+        return -1;
+      }
+    
+      if ((err=ParamGet(hreader, MTR_PARAM_RF_MAXPOWER, &Maxp)) != MT_OK_ERR)
+      {
+        printf("ParamGet err :%d input any key to exit!\n", err);
+        scanf("%c",&c);
+        return ;
+      }
+    
+      antpwrconf.antcnt = antportnum;
+      for(i=0;i< antportnum;i++)
+      { antpwrconf.Powers[i].antid = i+1;
+      antpwrconf.Powers[i].readPower = Maxp;
+      antpwrconf.Powers[i].writePower = Maxp;}
+
+      if (ParamSet(hreader, MTR_PARAM_RF_ANTPOWER, &antpwrconf) != MT_OK_ERR)
+      {
+        printf("ParamSet MTR_PARAM_RF_ANTPOWER err\n");
+        scanf("%c",&c);
+        return -1;
+      }
+    
+      //清除单过滤条件/clear the fliter 
+	    ParamSet(hreader, MTR_PARAM_TAG_FILTER, NULL); 
+      //清除单附加数据/clear embededdata
+	    ParamSet(hreader, MTR_PARAM_TAG_EMBEDEDDATA, NULL);
+
+      //获取已连接天线/get connected antennnas
+      if (ParamGet(hreader, MTR_PARAM_READER_CONN_ANTS, &conants) == MT_OK_ERR)
+      {
+        if(conants.antcnt>0)
+        { 
+          printf("get connected antennas \n");
+          pants=&conants.connectedants[0];
+          antlen=conants.antcnt;
+        }
+      }
+    
+      reblk.handler = OnReadingError;
+      reblk.cookie = NULL;
+      SetReadingErrorHandler(hreader, reblk);
+    
+      trblk.handler = OnTagRead;
+      trblk.cookie = NULL;
+      SetTagReadHandler(hreader, trblk);
+    
+      //清除多过滤条件/disable multiple filers:
+      ParamSet(hreader,MTR_PARAM_TAG_MULTISELECTORS,NULL);
+      //设置多过滤条件/enable multiple filers:
+      mtst.selectorcnt=3;
+    
+      mtst.multiselectors[p].bank=1;
+      mtst.multiselectors[p].startaddr=32;
+      mtst.multiselectors[p].slen=96;
+      memcpy(mtst.multiselectors[p].sdata,matchdata1,mtst.multiselectors[p].slen/8);
+      p++;
+      mtst.multiselectors[p].bank=1;
+      mtst.multiselectors[p].startaddr=32;
+      mtst.multiselectors[p].slen=96;
+      memcpy(mtst.multiselectors[p].sdata,matchdata2,mtst.multiselectors[p].slen/8);
+      p++;
+      mtst.multiselectors[p].bank=1;
+      mtst.multiselectors[p].startaddr=32;
+      mtst.multiselectors[p].slen=96;
+      memcpy(mtst.multiselectors[p].sdata,matchdata3,mtst.multiselectors[p].slen/8);
+      ParamSet(hreader,MTR_PARAM_TAG_MULTISELECTORS,&mtst);
+    
+      memset(&BROption, 0, sizeof(BackReadOption));
+      BROption.IsFastRead = 1; //0 普通模式 1 快速模式 /0 general mode 1 fast mode
+    
+      //清空多附加数据/clear mulitiple addtional data
+      err = SetInvMultiEmbeddedData(hreader, NULL, 0, NULL);
+      //附加数据读tid区96bits/addtional data with tid bank(96bits)
+      BankDatas[0].bank = 0x00;
+      BankDatas[0].startaddr = 0;
+      BankDatas[0].blockcnt = 4;
+    
+      BankDatas[1].bank = 0x02;
+      BankDatas[1].startaddr = 0;
+      BankDatas[1].blockcnt = 6;
+    
+      BankDatas[2].bank = 0x03;
+      BankDatas[2].startaddr = 0;
+      BankDatas[2].blockcnt = 6;
+    
+      err = SetInvMultiEmbeddedData(hreader, BankDatas, 3, accesspwd);
+      BROption.TMFlags.IsEmdData=1;
+      BROption.TMFlags.IsRSSI=1;
+
+      err = StartReading(hreader, pants, antlen, &BROption);
+      if (err == MT_OK_ERR)
+      {	printf("StartReading successfully\n");
+      startt=time((time_t*)NULL);
+      endtt=startt;}
+      else
+      {
+        printf("StartReading failed err:%d\n", err);
+        scanf("%c",&c);
+        return -1;
+      }
+      while (1)
+      {
+        endtt=time((time_t*)NULL);
+        if((endtt-startt)>=testseconds||isbreak)
+        {
+          StopReading(hreader);
+          break;
+        }
+        MSLEEP(1000);
+      }
+
+      CloseReader(hreader);
+      printf("close the reader.input any key to exit!\n");
+      scanf("%c",&c);
+      return 0;
+    }
+  </code></pre>
+  <H4>C Language Code Example 9- Asynchronous Inventory with Multiple Additional Data and Multiple Filtering Conditions Output Results</H4>
+  <style>
+    .responsive-image2 {
+      object-fit: contain;
+      width: 70%;
+      /* 或者使用具体的像素值，如：width: 200px; */
+      height: auto;
+      /* 高度自动调整以保持图片原始宽高比 */
+    }
+  </style>
+  <img src="images/test_asynfastreadmulfilemd_print.png" alt="Output Results" class="responsive-image2" />
+  <div   class="inner_title">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <H4>Example 11 GPI triggers asynchronous inventory reference</H4>
+<p><a href=api_perGPIO.html#sample11 >GPI Trigger asynchronous inventory</a></p>
+
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Producer <a href="https://www.doxygen.org/index.html"><img class="footer" src="../doc_API_C_html/doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>
